@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteRule ^portal/(.+)?$ frontend/web/$1 [L,PT]
+RewriteRule ^(.+)?$ backend/web/$1
