@@ -1,0 +1,134 @@
+<?php
+
+namespace frontend\controllers;
+
+use frontend\models\BHSSchedule;
+use frontend\models\schedule\scheduleSearch;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
+
+/**
+ * ScheduleController implements the CRUD actions for BHSSchedule model.
+ */
+class ScheduleController extends Controller
+{
+    /**
+     * @inheritDoc
+     */
+    public function behaviors()
+    {
+        return array_merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'delete' => ['POST'],
+                    ],
+                ],
+            ]
+        );
+    }
+
+    /**
+     * Lists all BHSSchedule models.
+     *
+     * @return string
+     */
+    public function actionIndex()
+    {
+        $searchModel = new scheduleSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Displays a single BHSSchedule model.
+     * @param int $Schedule_ID Schedule ID
+     * @return string
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionView($Schedule_ID)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($Schedule_ID),
+        ]);
+    }
+
+    /**
+     * Creates a new BHSSchedule model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return string|\yii\web\Response
+     */
+    public function actionCreate()
+    {
+        $model = new BHSSchedule();
+
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'Schedule_ID' => $model->Schedule_ID]);
+            }
+        } else {
+            $model->loadDefaultValues();
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Updates an existing BHSSchedule model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param int $Schedule_ID Schedule ID
+     * @return string|\yii\web\Response
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionUpdate($Schedule_ID)
+    {
+        $model = $this->findModel($Schedule_ID);
+
+        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'Schedule_ID' => $model->Schedule_ID]);
+        }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Deletes an existing BHSSchedule model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param int $Schedule_ID Schedule ID
+     * @return \yii\web\Response
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionDelete($Schedule_ID)
+    {
+        $this->findModel($Schedule_ID)->delete();
+
+        return $this->redirect(['index']);
+    }
+
+    /**
+     * Finds the BHSSchedule model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param int $Schedule_ID Schedule ID
+     * @return BHSSchedule the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModel($Schedule_ID)
+    {
+        if (($model = BHSSchedule::findOne(['Schedule_ID' => $Schedule_ID])) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
+}

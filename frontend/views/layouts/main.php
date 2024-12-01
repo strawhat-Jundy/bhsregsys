@@ -40,9 +40,9 @@ AppAsset::register($this);
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
-        ['label' => 'Students', 'url' => ['/student/index']],
-        ['label' => 'Subjects', 'url' => ['/subject/index']],
-        ['label' => 'Teachers', 'url' => ['/teacher/index']]
+        // ['label' => 'Students', 'url' => ['/student/index']],
+        // ['label' => 'Subjects', 'url' => ['/subject/index']],
+        ['label' => 'Schedules', 'url' => ['/schedule/index']]
         
     ];
     if (Yii::$app->user->isGuest) {
