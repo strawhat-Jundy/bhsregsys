@@ -1,15 +1,15 @@
 <?php
 
-namespace frontend\models\schedule;
+namespace frontend\models\teacher;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\BHSSchedule;
+use frontend\models\BalingasaHighSchoolTeachers;
 
 /**
- * scheduleSearch represents the model behind the search form of `frontend\models\BHSSchedule`.
+ * teachersSearch represents the model behind the search form of `frontend\models\BalingasaHighSchoolTeachers`.
  */
-class scheduleSearch extends BHSSchedule
+class teachersSearch extends BalingasaHighSchoolTeachers
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class scheduleSearch extends BHSSchedule
     public function rules()
     {
         return [
-            [['Schedule_ID', 'subject_id', 'teacher_id', 'room_id', 'student_id'], 'integer'],
-            [['Status', 'Day_Schedule', 'Time_Schedule', 'Room'], 'safe'],
+            [['teacher_id'], 'integer'],
+            [['first_name', 'last_name'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class scheduleSearch extends BHSSchedule
      */
     public function search($params)
     {
-        $query = BHSSchedule::find();
+        $query = BalingasaHighSchoolTeachers::find();
 
         // add conditions that should always apply here
 
@@ -58,17 +58,11 @@ class scheduleSearch extends BHSSchedule
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'Schedule_ID' => $this->Schedule_ID,
-            'subject_id' => $this->subject_id,
             'teacher_id' => $this->teacher_id,
-            'room_id' => $this->room_id,
-            'student_id' => $this->student_id,
         ]);
 
-        $query->andFilterWhere(['like', 'Status', $this->Status])
-            ->andFilterWhere(['like', 'Day_Schedule', $this->Day_Schedule])
-            ->andFilterWhere(['like', 'Time_Schedule', $this->Time_Schedule])
-            ->andFilterWhere(['like', 'Room', $this->Room]);
+        $query->andFilterWhere(['like', 'first_name', $this->first_name])
+            ->andFilterWhere(['like', 'last_name', $this->last_name]);
 
         return $dataProvider;
     }

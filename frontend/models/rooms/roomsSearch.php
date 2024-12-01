@@ -1,15 +1,15 @@
 <?php
 
-namespace frontend\models\schedule;
+namespace frontend\models\rooms;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\BHSSchedule;
+use frontend\models\BalingasaHighSchoolRooms;
 
 /**
- * scheduleSearch represents the model behind the search form of `frontend\models\BHSSchedule`.
+ * roomsSearch represents the model behind the search form of `frontend\models\BalingasaHighSchoolRooms`.
  */
-class scheduleSearch extends BHSSchedule
+class roomsSearch extends BalingasaHighSchoolRooms
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class scheduleSearch extends BHSSchedule
     public function rules()
     {
         return [
-            [['Schedule_ID', 'subject_id', 'teacher_id', 'room_id', 'student_id'], 'integer'],
-            [['Status', 'Day_Schedule', 'Time_Schedule', 'Room'], 'safe'],
+            [['room_id', 'Room_Number'], 'integer'],
+            [['Room', 'Floor', 'Building', 'Description'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class scheduleSearch extends BHSSchedule
      */
     public function search($params)
     {
-        $query = BHSSchedule::find();
+        $query = BalingasaHighSchoolRooms::find();
 
         // add conditions that should always apply here
 
@@ -58,17 +58,14 @@ class scheduleSearch extends BHSSchedule
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'Schedule_ID' => $this->Schedule_ID,
-            'subject_id' => $this->subject_id,
-            'teacher_id' => $this->teacher_id,
             'room_id' => $this->room_id,
-            'student_id' => $this->student_id,
+            'Room_Number' => $this->Room_Number,
         ]);
 
-        $query->andFilterWhere(['like', 'Status', $this->Status])
-            ->andFilterWhere(['like', 'Day_Schedule', $this->Day_Schedule])
-            ->andFilterWhere(['like', 'Time_Schedule', $this->Time_Schedule])
-            ->andFilterWhere(['like', 'Room', $this->Room]);
+        $query->andFilterWhere(['like', 'Room', $this->Room])
+            ->andFilterWhere(['like', 'Floor', $this->Floor])
+            ->andFilterWhere(['like', 'Building', $this->Building])
+            ->andFilterWhere(['like', 'Description', $this->Description]);
 
         return $dataProvider;
     }

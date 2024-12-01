@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 
 use Yii;
 
@@ -24,7 +24,7 @@ use Yii;
  *
  * @property TblOfficialFinalSchedule[] $tblOfficialFinalSchedules
  */
-class TblOfficialStudents extends \yii\db\ActiveRecord
+class BalingasaHighSchoolStudents extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}

@@ -1,15 +1,15 @@
 <?php
 
-namespace frontend\models\schedule;
+namespace frontend\models\subject;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\BHSSchedule;
+use frontend\models\BalingasaHighSchoolSubjects;
 
 /**
- * scheduleSearch represents the model behind the search form of `frontend\models\BHSSchedule`.
+ * subjectsSearch represents the model behind the search form of `frontend\models\BalingasaHighSchoolSubjects`.
  */
-class scheduleSearch extends BHSSchedule
+class subjectsSearch extends BalingasaHighSchoolSubjects
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class scheduleSearch extends BHSSchedule
     public function rules()
     {
         return [
-            [['Schedule_ID', 'subject_id', 'teacher_id', 'room_id', 'student_id'], 'integer'],
-            [['Status', 'Day_Schedule', 'Time_Schedule', 'Room'], 'safe'],
+            [['subject_id'], 'integer'],
+            [['subject_name', 'schedule_day', 'schedule_time', 'room'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class scheduleSearch extends BHSSchedule
      */
     public function search($params)
     {
-        $query = BHSSchedule::find();
+        $query = BalingasaHighSchoolSubjects::find();
 
         // add conditions that should always apply here
 
@@ -58,17 +58,13 @@ class scheduleSearch extends BHSSchedule
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'Schedule_ID' => $this->Schedule_ID,
             'subject_id' => $this->subject_id,
-            'teacher_id' => $this->teacher_id,
-            'room_id' => $this->room_id,
-            'student_id' => $this->student_id,
         ]);
 
-        $query->andFilterWhere(['like', 'Status', $this->Status])
-            ->andFilterWhere(['like', 'Day_Schedule', $this->Day_Schedule])
-            ->andFilterWhere(['like', 'Time_Schedule', $this->Time_Schedule])
-            ->andFilterWhere(['like', 'Room', $this->Room]);
+        $query->andFilterWhere(['like', 'subject_name', $this->subject_name])
+            ->andFilterWhere(['like', 'schedule_day', $this->schedule_day])
+            ->andFilterWhere(['like', 'schedule_time', $this->schedule_time])
+            ->andFilterWhere(['like', 'room', $this->room]);
 
         return $dataProvider;
     }
