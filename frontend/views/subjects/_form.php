@@ -10,7 +10,10 @@ use yii\widgets\ActiveForm;
 
 <div class="balingasa-high-school-subjects-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+  
+
+  <?php $form = ActiveForm::begin(); ?>
+
 
     <?= $form->field($model, 'subject_name')->textInput(['maxlength' => true]) ?>
 
@@ -18,7 +21,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'schedule_time')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'room')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'room')->textInput(['maxlength' => true]) ?> -->
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

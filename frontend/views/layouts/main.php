@@ -26,50 +26,25 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <header>
-    <?php
-    NavBar::begin([
-        'brandLabel' => Html::img('@web/images/logo.png', [
-            'style' => 'width: 50px;'
-        ]),
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-        // ['label' => 'Students', 'url' => ['/student/index']],
-        // ['label' => 'Subjects', 'url' => ['/subject/index']],
-        ['label' => 'Schedules', 'url' => ['/schedule/index']],
-        ['label' => 'Rooms', 'url' => ['/rooms/index']],
-        ['label' => 'Students', 'url' => ['/students/index']],
-        ['label' => 'Subjects', 'url' => ['/subjects/index']],
-        ['label' => 'Teachers', 'url' => ['/teachers/index']],
-        
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-    }
-
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav me-auto mb-2 mb-md-0'],
-        'items' => $menuItems,
-    ]);
-    if (Yii::$app->user->isGuest) {
-        echo Html::tag('div',Html::a('Login',['/site/login'],['class' => ['btn btn-link login text-decoration-none']]),['class' => ['d-flex']]);
-    } else {
-        echo Html::beginForm(['/site/logout'], 'post', ['class' => 'd-flex'])
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout text-decoration-none']
-            )
-            . Html::endForm();
-    }
-    NavBar::end();
-    ?>
-</header>
+        <a href="">
+            <img src="/images/logo.png" alt="BHS REGISTRY SYSTEM LOGO">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Student</a></li>
+                <li><a href="">Schedule</a></li>
+                <li><a href="">Room</a></li>
+                <li><a href="">Teacher</a></li>
+                <li><a href="">Subject</a></li>
+                <li><a href="">Summary</a></li>
+            </ul>
+        </nav>
+        <div class="registration">
+            <a href="" class="sign-up">Sign up</a>
+            <button class="btn-yellow">Log In</button>
+        </div>
+    </header>
 
 <main role="main" class="flex-shrink-0">
     <div class="container">

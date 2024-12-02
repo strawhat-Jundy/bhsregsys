@@ -165,15 +165,15 @@ nav li > a:hover{
     background-image: url(/registry.system/images/ict-pic.jpg);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    height: 300px;
-    width: 500px;
+    background-size: 59vmin 46vmin;
+    height: 46vmin;
+    width: 59vmin;
     position: relative;
-    border: 15px double #ffb915;
+    border: 26px double #ffb915;
     border-radius: 10%;
     margin: auto;
     opacity: 0.8;
-    box-shadow: 0 0 3em rgba(0, 0, 0, 0.6));
+    box-shadow: 0 0 3em rgba(0, 0, 0, 0.6);
 
 }
 .text-wrapper-abt{
