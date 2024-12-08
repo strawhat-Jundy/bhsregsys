@@ -377,3 +377,6 @@ ol, ul, dl {
     margin-top: 0;
     margin-bottom: 0rem;
 }
+footer{
+    display:none;
+}

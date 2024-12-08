@@ -1,14 +1,11 @@
-<?php
-// @var yii\web\View $this
-use yii\helpers\Url;
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BHS Registry System</title>
-    <link rel="stylesheet" href="<?= Yii::$app->request->baseUrl?>/css/style.css">
+    <!-- <link rel="stylesheet" href="/registry.system/style.css"> -->
+     <link rel="stylesheet" href="<?= Yii::$app->request->baseUrl ?>/css/style.css">
     <link rel="icon" href="/registry.system/images/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -17,7 +14,7 @@ use yii\helpers\Url;
     <header>
         <a href="">
             <!-- <img src="/registry.system/images/logo.png" alt="BHS REGISTRY SYSTEM LOGO"> -->
-            <img src="<?= Url::to('@web/images/images/logo.png')?>" alt="BHS REGISTRY SYSTEM LOGO">
+            <img src="<?= Yii::$app->request->baseUrl?>/images/images/logo.png" alt="BHS REGISTRY SYSTEM LOGO">
         </a>
         <nav>
             <ul>
@@ -65,7 +62,7 @@ use yii\helpers\Url;
             <div class="card-container">
                 <div class="card card1">
                     <!-- <img src="/registry.system/images/cholo-card.png" alt="Van Cholo Esguerra"> -->
-                    <img src="<?= Url::to('@web/images/images/cholo-card.png')?>" alt="Van Cholo Esguerra">
+                    <img src="<?= Yii::$app->request->baseUrl?>/images/images/cholo-card.png" alt="BHS REGISTRY SYSTEM LOGO">
                     <div class="links5">
                         <a href="https://chocoacocoa.github.io/Van-Cholo---Profile/" target="_blank"><i class="ri-pages-line"></i></a>
                         <a href="https://www.facebook.com/vancholo.esguerra.5/" target="_blank"><i class="ri-facebook-fill"></i></a>
@@ -75,7 +72,7 @@ use yii\helpers\Url;
                     </div>
                 </div>
                 <div class="card card2">
-                    <img src="<?= Url::to('@web/images/images/cudia-card.png')?>" alt="Lucky Vincent Cudia">
+                    <img src="/registry.system/images/cudia-card.png" alt="Lucky Vincent Cudia">
                     <div class="links3">
                         <a href="https://www.facebook.com/luckyvincent.cudia?mibextid=ZbWKwL" target="_blank"><i class="ri-facebook-fill"></i></a>
                         <a href="https://github.com/Cudia0" target="_blank"><i class="ri-github-fill"></i></a>
@@ -83,13 +80,13 @@ use yii\helpers\Url;
                     </div>
                 </div>
                 <div class="card card3">
-                    <img src="<?= Url::to('@web/images/images/ken-card.png')?>" alt="Julius Peralta">
+                    <img src="/registry.system/images/ken-card.png" alt="Julius Peralta">
                     <div class="links">
                         <a href="#" target="_blank"><i class="ri-facebook-fill"></i></a>
                     </div>
                 </div>
                 <div class="card card4">
-                    <img src="<?= Url::to('@web/images/images/rogon-card.png')?>" alt="Leonel Rogon">
+                    <img src="/registry.system/images/rogon-card.png" alt="Leonel Rogon">
                     <div class="links5">
                         <a href="https://rogondotdev.github.io/personal-portfolio/" target="_blank"><i class="ri-pages-line"></i></a>
                         <a href="https://www.facebook.com/rogon.dev" target="_blank"><i class="ri-facebook-fill"></i></a>
@@ -99,7 +96,7 @@ use yii\helpers\Url;
                     </div>
                 </div>
                 <div class="card card5">
-                    <img src="<?= Url::to('@web/images/images/ken-card.png')?>" alt="Kenneth Apolong">
+                    <img src="/registry.system/images/ken-card.png" alt="Kenneth Apolong">
                     <div class="links">
                         <a href="#" target="_blank"><i class="ri-facebook-fill"></i></a>
                     </div>
@@ -108,7 +105,7 @@ use yii\helpers\Url;
 
             <div class="card-container">
                 <div class="card card1">
-                    <img src="<?= Url::to('@web/images/images/toledo-card.png')?>" alt="Hillary Mhyles Toledo">
+                    <img src="/registry.system/images/toledo-card.png" alt="Hillary Mhyles Toledo">
                     <div class="links3">
                         <a href="https://www.facebook.com/share/6s5ZNDhg7dAgBaFA/?mibextid=LQQJ4d" target="_blank"><i class="ri-facebook-fill"></i></a>
                         <a href="https://www.instagram.com/colorshin77?igsh=Y3d0dXJ3NWQ4eHdm&utm_source=qr" target="_blank"><i class="ri-instagram-line"></i></a>
@@ -116,20 +113,20 @@ use yii\helpers\Url;
                     </div>
                 </div>
                 <div class="card card2">
-                    <img src="<?= Url::to('@web/images/images/elaiza-card.png')?>" alt="Elaize Rosario">
+                    <img src="/registry.system/images/elaiza-card.png" alt="Elaize Rosario">
                     <div class="links2">
                         <a href="https://www.facebook.com/elaizajane.rosario" target="_blank"><i class="ri-facebook-fill"></i></a>
                         <a href="https://github.com/ElaizaJanee" target="_blank"><i class="ri-github-fill"></i></a>
                     </div>
                 </div>
                 <div class="card card3">
-                    <img src="<?= Url::to('@web/images/images/jundy-card.png')?>" alt="Sir Jundy Dimasu-ay">
+                    <img src="/registry.system/images/jundy-card.png" alt="Sir Jundy Dimasu-ay">
                     <div class="links">
                         <a href="#" target="_blank"><i class="ri-facebook-fill"></i></a>
                     </div>
                 </div>
                 <div class="card card4">
-                    <img src="<?= Url::to('@web/images/images/eloisa-card.png')?>" alt="Eloisa Rosario">
+                    <img src="/registry.system/images/eloisa-card.png" alt="Eloisa Rosario">
                     <div class="links3">
                         <a href="https://www.facebook.com/eloisajean.rosario.54" target="_blank"><i class="ri-facebook-fill"></i></a>
                         <a href="https://github.com/LilJeanie" target="_blank"><i class="ri-github-fill"></i></a>
@@ -137,7 +134,7 @@ use yii\helpers\Url;
                     </div>
                 </div>
                 <div class="card card5">
-                    <img src="<?= Url::to('@web/images/images/erin-card.png')?>" alt="Erin Alonzo">
+                    <img src="/registry.system/images/erin-card.png" alt="Erin Alonzo">
                     <div class="links">
                         <a href="https://www.facebook.com/share/1DXsqNLEfu/?mibextid=qi2Omg" target="_blank"><i class="ri-facebook-fill"></i></a>
                     </div>
@@ -149,7 +146,7 @@ use yii\helpers\Url;
     <footer>
         <div class="footer-container">
             <div class="logo-foot">
-                <img src="<?= Url::to('@web/images/images/logo.png')?>" alt="Balingasa Higb School Registry System">
+                <img src="/registry.system/images/logo.png" alt="Balingasa Higb School Registry System">
             </div>
             <div class="links-foot">
                 <h2>WEBSITE DEVELOPERS | SPECIAL MENTIONS</h2>
