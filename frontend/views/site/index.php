@@ -14,9 +14,9 @@ use yii\helpers\Url;
 
 </head>
 <body>
-    <header>
+    <!-- <header>
         <a href="">
-            <!-- <img src="/registry.system/images/logo.png" alt="BHS REGISTRY SYSTEM LOGO"> -->
+            <img src="/registry.system/images/logo.png" alt="BHS REGISTRY SYSTEM LOGO"> 
             <img src="<?= Url::to('@web/images/images/logo.png')?>" alt="BHS REGISTRY SYSTEM LOGO">
         </a>
         <nav>
@@ -36,7 +36,7 @@ use yii\helpers\Url;
             <a href="" class="sign-up">Sign up</a>
             <button class="btn-yellow" id="">Log In</button>
         </div>
-    </header>
+    </header> -->
     <main>
         <div id="hero">
             <div class="hero-text">
