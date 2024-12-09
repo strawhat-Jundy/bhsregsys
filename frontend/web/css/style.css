@@ -3,7 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-
+html{
+    scroll-behavior: smooth;
+}
 *{
     margin: 0;
     padding: 0;
@@ -98,6 +100,7 @@ nav li > a:hover{
     gap: 5em;
     padding-inline: 10em;
     clip-path: polygon(0 96%, 0 0, 100% 0, 100% 100%, 16% 100%, 10% 96%);
+    margin-inline: -20vmin;
 }
 .hero-text{
     display: flex;
@@ -173,7 +176,7 @@ nav li > a:hover{
     border-radius: 10%;
     margin: auto;
     opacity: 0.8;
-    box-shadow: 0 0 3em rgba(0, 0, 0, 0.6));
+    box-shadow: 0 0 3em rgba(0, 0, 0, 0.6);
 
 }
 .text-wrapper-abt{
@@ -229,9 +232,23 @@ nav li > a:hover{
     position: absolute;
     bottom: 80px;
     right: 115px;
-
 } 
-.links a{
+.links2{
+    position: absolute;
+    bottom: 80px;
+    right: 110px;
+}
+.links3{
+    position: absolute;
+    bottom: 80px;
+    right: 98px;
+}
+.links5{
+    position: absolute;
+    bottom: 80px;
+    right: 81px;
+}
+.links a, .links2 a, .links3 a, .links5 a{
     font-size: .8rem;
     color: #efefef;
     text-decoration: none;
@@ -240,19 +257,62 @@ nav li > a:hover{
 }
 .links a::after{
     content: "";
-    width: 212px;
+    width: 205px;
     height: 1.5px;
     background-color: #ffb915;
     position: absolute;
     top: -5px;
-    left: -98px;
+    left: -90px;
     transform: scaleX(0);
     transition: transform 500ms ease;
 }
-.links a:hover{
+.links2 a::after{
+    content: "";
+    width: 205px;
+    height: 1.5px;
+    background-color: #ffb915;
+    position: absolute;
+    top: -5px;
+    left: -78px;
+    transform: scaleX(0);
+    transition: transform 500ms ease;
+}
+.links3 a::after{
+    content: "";
+    width: 205px;
+    height: 1.5px;
+    background-color: #ffb915;
+    position: absolute;
+    top: -5px;
+    left: -73px;
+    transform: scaleX(0);
+    transition: transform 500ms ease;
+}
+.links5 a::after{
+    content: "";
+    width: 205px;
+    height: 1.5px;
+    background-color: #ffb915;
+    position: absolute;
+    top: -5px;
+    left: -56px;
+    transform: scaleX(0);
+    transition: transform 500ms ease;
+}
+
+.links a:hover, .links2 a:hover, .links3 a:hover, .links5 a:hover{
     color: #ffb915;
 }
 .card:hover .links a::after{
+    transform: scale(1);
+}
+.card:hover .links2 a::after{
+    transform: scale(1);
+}
+.card:hover .links3 a::after{
+    transform: scale(1);
+}
+.card:hover .links5 a::after{
     transform: scale(1);
 }
 
@@ -311,4 +371,9 @@ footer img{
 }
 .developers p, .mentions p{
     color: rgb(192, 192, 192);
+}
+
+ol, ul, dl {
+    margin-top: 0;
+    margin-bottom: 0rem;
 }

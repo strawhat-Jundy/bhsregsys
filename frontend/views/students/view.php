@@ -45,6 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'middle_name',
         ],
 
+<<<<<<< HEAD
 
    'label' => 'Subjects', // Custom label for subjects
    'value' => function ($model) {
@@ -59,6 +60,22 @@ $this->params['breadcrumbs'][] = $this->title;
    // Return a comma-separated list of subject names
    return implode(', ', $subjectNames);
    },
+=======
+// NILAGAY NI KEN
+        'label' => 'Subjects', // Custom label for subjects
+        'value' => function ($model) {
+     
+        // Get the related subjects via the student-subject relationship
+        $subjects = $model->studentsSubjects;
+        // Extract the subject names
+        $subjectNames = [];
+        foreach ($subjects as $studentsSubjects) {
+        $subjectNames[] = $studentsSubjects->subject->subject_name; // Assuming the 'subject' relation exists in StudentsSubject
+        }
+        // Return a comma-separated list of subject names
+        return implode(', ', $subjectNames);
+        }, 
+>>>>>>> d5c19bb201b53749ac549f89a45a72d14e3401da
     ]) ?>
 
 </div>

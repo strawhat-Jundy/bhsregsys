@@ -101,3 +101,9 @@ a.desc:after {
 {
     text-decoration: none;
 }
+.container{
+    margin: 0;
+}
+footer{
+    display:none;
+}

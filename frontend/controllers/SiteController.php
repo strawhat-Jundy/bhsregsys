@@ -84,6 +84,10 @@ class SiteController extends Controller
             'text' => $text
         ]);
     }
+    
+    public function actionBHS(){
+        return $this->render('index');
+    }
 
     /**
      * Logs in a user.
