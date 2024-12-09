@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\BHSSchedule $model */
+/** @var frontend\models\TblOfficialFinalSchedule $model */
 
 $this->title = $model->Schedule_ID;
-$this->params['breadcrumbs'][] = ['label' => 'Bhs Schedules', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Tbl Official Final Schedules', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="bhsschedule-view">
+<div class="tbl-official-final-schedule-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -34,10 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'teacher_id',
             'room_id',
             'student_id',
-            'Status',
-            'Day_Schedule',
-            'Time_Schedule',
-            'Room',
+            'status_id',
+            'weekday_id',
+            'time_id:datetime',
         ],
     ]) ?>
 

@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use frontend\models\StudentSubject;
 use frontend\models\Subject;
 use frontend\models\subject\Search;
+use frontend\models\TblOfficialSubjects;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -31,6 +32,11 @@ class SubjectController extends Controller
                 ],
             ]
         );
+    }
+    public function actionGetSubjects(){
+        $subjects = TblOfficialSubjects::find()->select(['subject_id', 'subject_name'])->all();
+        $subjectList = \yii\helpers\ArrayHelper::map($subjects, 'subject_id', 'subject_name');
+        return $this->asJson($subjectList);
     }
 
     /**

@@ -5,22 +5,21 @@ namespace frontend\models;
 use Yii;
 
 /**
- * This is the model class for table "Tbl_Official_Teachers".
+ * This is the model class for table "Tbl_Official_Weekdays".
  *
- * @property int $teacher_id
- * @property string $first_name
- * @property string $last_name
+ * @property int $weekday_id
+ * @property string $Day
  *
  * @property TblOfficialFinalSchedule[] $tblOfficialFinalSchedules
  */
-class TblOfficialTeachers extends \yii\db\ActiveRecord
+class TblOfficialWeekdays extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'Tbl_Official_Teachers';
+        return 'Tbl_Official_Weekdays';
     }
 
     /**
@@ -29,8 +28,8 @@ class TblOfficialTeachers extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['first_name', 'last_name'], 'required'],
-            [['first_name', 'last_name'], 'string', 'max' => 200],
+            [['Day'], 'required'],
+            [['Day'], 'string', 'max' => 11],
         ];
     }
 
@@ -40,9 +39,8 @@ class TblOfficialTeachers extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'teacher_id' => 'Teacher ID',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
+            'weekday_id' => 'Weekday ID',
+            'Day' => 'Day',
         ];
     }
 
@@ -53,6 +51,6 @@ class TblOfficialTeachers extends \yii\db\ActiveRecord
      */
     public function getTblOfficialFinalSchedules()
     {
-        return $this->hasMany(TblOfficialFinalSchedule::class, ['teacher_id' => 'teacher_id']);
+        return $this->hasMany(TblOfficialFinalSchedule::class, ['weekday_id' => 'weekday_id']);
     }
 }

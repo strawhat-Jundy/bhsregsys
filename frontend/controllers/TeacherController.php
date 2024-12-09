@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use frontend\models\TblOfficialTeachers;
 use frontend\models\Teacher;
 use frontend\models\teacher\Search;
 use yii\web\Controller;
@@ -59,7 +60,11 @@ class TeacherController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-
+    public function actionGetTeachers(){
+        $teachers = TblOfficialTeachers::find()->select(['teacher_id', 'last_name'])->all();
+        $TeacherList = \yii\helpers\ArrayHelper::map($teachers, 'teacher_id', 'last_name');
+        return $this->asJson($TeacherList);
+    }
     /**
      * Creates a new Teacher model.
      * If creation is successful, the browser will be redirected to the 'view' page.

@@ -1,15 +1,15 @@
 <?php
 
 namespace frontend\models\schedule;
-
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\BHSSchedule;
+use frontend\models\TblOfficialFinalSchedule;
 
 /**
- * scheduleSearch represents the model behind the search form of `frontend\models\BHSSchedule`.
+ * scheduleSearch represents the model behind the search form of `frontend\models\TblOfficialFinalSchedule`.
  */
-class scheduleSearch extends BHSSchedule
+class scheduleSearch extends TblOfficialFinalSchedule
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,7 @@ class scheduleSearch extends BHSSchedule
     public function rules()
     {
         return [
-            [['Schedule_ID', 'subject_id', 'teacher_id', 'room_id', 'student_id'], 'integer'],
-            [['Status', 'Day_Schedule', 'Time_Schedule', 'Room'], 'safe'],
+            [['Schedule_ID', 'subject_id', 'teacher_id', 'room_id', 'student_id', 'status_id', 'weekday_id', 'time_id'], 'integer'],
         ];
     }
 
@@ -30,6 +29,13 @@ class scheduleSearch extends BHSSchedule
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
+    //dagdag
+    public function attributes()
+{
+    return array_merge(parent::attributes(), ['subject.subject_name', 'teacher.teacher_name']);
+}
+//dagdag
+
 
     /**
      * Creates data provider instance with search query applied
@@ -40,7 +46,7 @@ class scheduleSearch extends BHSSchedule
      */
     public function search($params)
     {
-        $query = BHSSchedule::find();
+        $query = TblOfficialFinalSchedule::find();
 
         // add conditions that should always apply here
 
@@ -63,12 +69,10 @@ class scheduleSearch extends BHSSchedule
             'teacher_id' => $this->teacher_id,
             'room_id' => $this->room_id,
             'student_id' => $this->student_id,
+            'status_id' => $this->status_id,
+            'weekday_id' => $this->weekday_id,
+            'time_id' => $this->time_id,
         ]);
-
-        $query->andFilterWhere(['like', 'Status', $this->Status])
-            ->andFilterWhere(['like', 'Day_Schedule', $this->Day_Schedule])
-            ->andFilterWhere(['like', 'Time_Schedule', $this->Time_Schedule])
-            ->andFilterWhere(['like', 'Room', $this->Room]);
 
         return $dataProvider;
     }

@@ -12,7 +12,9 @@ use Yii;
  * @property string $schedule_day
  * @property string $schedule_time
  * @property string $room
+ * @property int $teacher_id
  *
+ * @property BalingasaHighSchoolTeachers $teacher
  * @property TblOfficialFinalSchedule[] $tblOfficialFinalSchedules
  */
 class BalingasaHighSchoolSubjects extends \yii\db\ActiveRecord
@@ -31,7 +33,8 @@ class BalingasaHighSchoolSubjects extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['subject_name', 'schedule_day', 'schedule_time', 'room'], 'required'],
+            [['subject_name', 'schedule_day', 'schedule_time', 'room', 'teacher_id'], 'required'],
+            [['teacher_id'], 'integer'],
             [['subject_name', 'room'], 'string', 'max' => 200],
             [['schedule_day'], 'string', 'max' => 10],
             [['schedule_time'], 'string', 'max' => 30],
@@ -49,7 +52,18 @@ class BalingasaHighSchoolSubjects extends \yii\db\ActiveRecord
             'schedule_day' => 'Schedule Day',
             'schedule_time' => 'Schedule Time',
             'room' => 'Room',
+            'teacher_id' => 'Teacher ID',
         ];
+    }
+
+    /**
+     * Gets query for [[Teacher]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTeacher()
+    {
+        return $this->hasOne(BalingasaHighSchoolTeachers::class, ['id' => 'teacher_id']);
     }
 
     /**
@@ -61,4 +75,4 @@ class BalingasaHighSchoolSubjects extends \yii\db\ActiveRecord
     {
         return $this->hasMany(TblOfficialFinalSchedule::class, ['subject_id' => 'subject_id']);
     }
-}
+};

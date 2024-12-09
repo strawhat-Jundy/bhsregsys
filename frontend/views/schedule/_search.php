@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="bhsschedule-search">
+<div class="tbl-official-final-schedule-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -25,13 +25,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'student_id') ?>
 
-    <?php // echo $form->field($model, 'Status') ?>
+    <?php // echo $form->field($model, 'status_id') ?>
 
-    <?php // echo $form->field($model, 'Day_Schedule') ?>
+    <?php // echo $form->field($model, 'weekday_id') ?>
 
-    <?php // echo $form->field($model, 'Time_Schedule') ?>
-
-    <?php // echo $form->field($model, 'Room') ?>
+    <?php // echo $form->field($model, 'time_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

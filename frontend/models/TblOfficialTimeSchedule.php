@@ -5,22 +5,21 @@ namespace frontend\models;
 use Yii;
 
 /**
- * This is the model class for table "Tbl_Official_Teachers".
+ * This is the model class for table "Tbl_Official_Time_Schedule".
  *
- * @property int $teacher_id
- * @property string $first_name
- * @property string $last_name
+ * @property int $time_id
+ * @property string $Time_Schedule
  *
  * @property TblOfficialFinalSchedule[] $tblOfficialFinalSchedules
  */
-class TblOfficialTeachers extends \yii\db\ActiveRecord
+class TblOfficialTimeSchedule extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'Tbl_Official_Teachers';
+        return 'Tbl_Official_Time_Schedule';
     }
 
     /**
@@ -29,8 +28,8 @@ class TblOfficialTeachers extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['first_name', 'last_name'], 'required'],
-            [['first_name', 'last_name'], 'string', 'max' => 200],
+            [['Time_Schedule'], 'required'],
+            [['Time_Schedule'], 'string', 'max' => 255],
         ];
     }
 
@@ -40,9 +39,8 @@ class TblOfficialTeachers extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'teacher_id' => 'Teacher ID',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
+            'time_id' => 'Time ID',
+            'Time_Schedule' => 'Time Schedule',
         ];
     }
 
@@ -53,6 +51,6 @@ class TblOfficialTeachers extends \yii\db\ActiveRecord
      */
     public function getTblOfficialFinalSchedules()
     {
-        return $this->hasMany(TblOfficialFinalSchedule::class, ['teacher_id' => 'teacher_id']);
+        return $this->hasMany(TblOfficialFinalSchedule::class, ['time_id' => 'time_id']);
     }
 }

@@ -2,14 +2,17 @@
 
 namespace frontend\controllers;
 
-use frontend\models\BHSSchedule;
+use frontend\models\TblOfficialFinalSchedule;
 use frontend\models\schedule\scheduleSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+//dagdag
+use yii\data\ActiveDataProvider;
+
 
 /**
- * ScheduleController implements the CRUD actions for BHSSchedule model.
+ * ScheduleController implements the CRUD actions for TblOfficialFinalSchedule model.
  */
 class ScheduleController extends Controller
 {
@@ -32,7 +35,7 @@ class ScheduleController extends Controller
     }
 
     /**
-     * Lists all BHSSchedule models.
+     * Lists all TblOfficialFinalSchedule models.
      *
      * @return string
      */
@@ -40,7 +43,11 @@ class ScheduleController extends Controller
     {
         $searchModel = new scheduleSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
-
+        //DAGDAG
+        // $dataProvider = new ActiveDataProvider([
+        //     'query' => TblOfficialFinalSchedule::find()->with(['subject', 'teacher', 'room', 'student', 'status', 'weekday', 'time']),
+        // ]);
+        //DAGDAG
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -48,7 +55,7 @@ class ScheduleController extends Controller
     }
 
     /**
-     * Displays a single BHSSchedule model.
+     * Displays a single TblOfficialFinalSchedule model.
      * @param int $Schedule_ID Schedule ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -61,13 +68,13 @@ class ScheduleController extends Controller
     }
 
     /**
-     * Creates a new BHSSchedule model.
+     * Creates a new TblOfficialFinalSchedule model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new BHSSchedule();
+        $model = new TblOfficialFinalSchedule();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -83,7 +90,7 @@ class ScheduleController extends Controller
     }
 
     /**
-     * Updates an existing BHSSchedule model.
+     * Updates an existing TblOfficialFinalSchedule model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $Schedule_ID Schedule ID
      * @return string|\yii\web\Response
@@ -103,7 +110,7 @@ class ScheduleController extends Controller
     }
 
     /**
-     * Deletes an existing BHSSchedule model.
+     * Deletes an existing TblOfficialFinalSchedule model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $Schedule_ID Schedule ID
      * @return \yii\web\Response
@@ -117,15 +124,15 @@ class ScheduleController extends Controller
     }
 
     /**
-     * Finds the BHSSchedule model based on its primary key value.
+     * Finds the TblOfficialFinalSchedule model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $Schedule_ID Schedule ID
-     * @return BHSSchedule the loaded model
+     * @return TblOfficialFinalSchedule the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($Schedule_ID)
     {
-        if (($model = BHSSchedule::findOne(['Schedule_ID' => $Schedule_ID])) !== null) {
+        if (($model = TblOfficialFinalSchedule::findOne(['Schedule_ID' => $Schedule_ID])) !== null) {
             return $model;
         }
 

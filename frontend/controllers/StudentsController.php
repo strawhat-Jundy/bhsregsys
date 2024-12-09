@@ -31,6 +31,12 @@ class StudentsController extends Controller
         );
     }
 
+    // public function actionGetSubjects(){
+    //     $subjects = Student::find()->select(['student_id', 'last_name'])->all();
+    //     $subjectList = \yii\helpers\ArrayHelper::map($subjects, 'id', 'name');
+    //     return $this->asJson($subjectList);
+    // }
+
     /**
      * Lists all BalingasaHighSchoolStudents models.
      *

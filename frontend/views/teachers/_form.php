@@ -20,6 +20,27 @@ use yii\widgets\ActiveForm;
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
-    <?php ActiveForm::end(); ?>
-
+    <?php ActiveForm::end(); 
+    $this->registerJs("
+// jQuery to populate the dropdown with students
+$.ajax({
+    url: '/bhsregsys2/frontend/web/teachers/get-teachers/', // Adjust the URL to match your controller/action
+    type: 'GET',
+    success: function(data) {
+        var dropdown = $('#student-dropdown');
+        dropdown.empty(); // Clear existing options
+        dropdown.append('<option value=\"\">Select a Student</option>'); // Add the default option
+        
+        // Loop through the returned data and append to dropdown
+        $.each(data, function(subject_id, subject_name) {
+            dropdown.append('<option value=\"' + subject_id + '\">' + subject_name + '</option>');
+            console.log(data);
+        });
+    },
+    error: function() {
+        alert('naglibog na ko.');
+    }
+});
+", \yii\web\View::POS_READY);
+?>
 </div>

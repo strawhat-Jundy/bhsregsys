@@ -88,6 +88,7 @@ class SiteController extends Controller
     public function actionBHS(){
         return $this->render('index');
     }
+    
 
     /**
      * Logs in a user.
