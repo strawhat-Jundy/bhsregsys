@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
 
 // NILAGAY NI KEN
-       /* 'label' => 'Subjects', // Custom label for subjects
+        'label' => 'Subjects', // Custom label for subjects
         'value' => function ($model) {
      
         // Get the related subjects via the student-subject relationship
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
         }
         // Return a comma-separated list of subject names
         return implode(', ', $subjectNames);
-        }, */
+        }, 
     ]) ?>
 
 </div>
