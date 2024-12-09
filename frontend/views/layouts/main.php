@@ -27,7 +27,7 @@ AppAsset::register($this);
 
 <header>
         <a href="">
-            <img src="/images/logo.png" alt="BHS REGISTRY SYSTEM LOGO">
+            <img src="/images/logo.png" >
         </a>
         <nav>
             <ul>
@@ -55,13 +55,13 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </main>
-
+<!-- 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
         <p class="float-start">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
         <p class="float-end"><?= Yii::powered() ?></p>
     </div>
-</footer>
+</footer> -->
 
 <?php $this->endBody() ?>
 </body>
