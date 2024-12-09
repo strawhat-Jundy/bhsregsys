@@ -2,7 +2,8 @@
 
 namespace frontend\controllers;
 
-use frontend\models\BalingasaHighSchoolTeachers;
+// use frontend\models\BalingasaHighSchoolTeachers;
+use frontend\models\TblOfficialTeachers;
 use frontend\models\teacher\teachersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -65,21 +66,27 @@ class TeachersController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
-    public function actionCreate()
-    {
-        $model = new BalingasaHighSchoolTeachers();
+    // public function actionCreate()
+    // {
+    //     $model = new BalingasaHighSchoolTeachers();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'teacher_id' => $model->teacher_id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
+    //     if ($this->request->isPost) {
+    //         if ($model->load($this->request->post()) && $model->save()) {
+    //             return $this->redirect(['view', 'teacher_id' => $model->teacher_id]);
+    //         }
+    //     } else {
+    //         $model->loadDefaultValues();
+    //     }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+    //     return $this->render('create', [
+    //         'model' => $model,
+    //     ]);
+    // }
+
+    public function actionGetTeachers(){
+        $teachers = TblOfficialTeachers::find()->select(['teacher_id', 'last_name'])->all();
+        $TeacherList = \yii\helpers\ArrayHelper::map($teachers, 'teacher_id', 'last_name');
+        return $this->asJson($TeacherList);
     }
 
     /**
@@ -123,12 +130,12 @@ class TeachersController extends Controller
      * @return BalingasaHighSchoolTeachers the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($teacher_id)
-    {
-        if (($model = BalingasaHighSchoolTeachers::findOne(['teacher_id' => $teacher_id])) !== null) {
-            return $model;
-        }
+    // protected function findModel($teacher_id)
+    // {
+    //     if (($model = BalingasaHighSchoolTeachers::findOne(['teacher_id' => $teacher_id])) !== null) {
+    //         return $model;
+    //     }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
-    }
+    //     throw new NotFoundHttpException('The requested page does not exist.');
+    // }
 }

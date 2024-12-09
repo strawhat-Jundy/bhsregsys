@@ -2,18 +2,16 @@
 
 namespace frontend\controllers;
 
-use frontend\models\BalingasaHighSchoolRooms;
 use frontend\models\TblOfficialRoomTable;
-
-use frontend\models\rooms\roomsSearch;
+use frontend\models\TblOfficialRoomTableSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * RoomsController implements the CRUD actions for BalingasaHighSchoolRooms model.
+ * TblofficialroomtableController implements the CRUD actions for TblOfficialRoomTable model.
  */
-class RoomsController extends Controller
+class TblofficialroomtableController extends Controller
 {
     /**
      * @inheritDoc
@@ -34,13 +32,13 @@ class RoomsController extends Controller
     }
 
     /**
-     * Lists all BalingasaHighSchoolRooms models.
+     * Lists all TblOfficialRoomTable models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new roomsSearch();
+        $searchModel = new TblOfficialRoomTableSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -49,18 +47,8 @@ class RoomsController extends Controller
         ]);
     }
 
-     public function actionGetRoom(){ 
-    $room = TblOfficialRoomTable::find()->select(['room_id', 'Room_Number'])->all();
-    $roomList = \yii\helpers\ArrayHelper::map($room, 'room_id', 'Room_Number');
-    return $this->asJson($roomList);
-
-
-}
-
-
-
     /**
-     * Displays a single BalingasaHighSchoolRooms model.
+     * Displays a single TblOfficialRoomTable model.
      * @param int $room_id Room ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -73,13 +61,13 @@ class RoomsController extends Controller
     }
 
     /**
-     * Creates a new BalingasaHighSchoolRooms model.
+     * Creates a new TblOfficialRoomTable model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new BalingasaHighSchoolRooms();
+        $model = new TblOfficialRoomTable();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -95,7 +83,7 @@ class RoomsController extends Controller
     }
 
     /**
-     * Updates an existing BalingasaHighSchoolRooms model.
+     * Updates an existing TblOfficialRoomTable model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $room_id Room ID
      * @return string|\yii\web\Response
@@ -115,7 +103,7 @@ class RoomsController extends Controller
     }
 
     /**
-     * Deletes an existing BalingasaHighSchoolRooms model.
+     * Deletes an existing TblOfficialRoomTable model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $room_id Room ID
      * @return \yii\web\Response
@@ -129,15 +117,15 @@ class RoomsController extends Controller
     }
 
     /**
-     * Finds the BalingasaHighSchoolRooms model based on its primary key value.
+     * Finds the TblOfficialRoomTable model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $room_id Room ID
-     * @return BalingasaHighSchoolRooms the loaded model
+     * @return TblOfficialRoomTable the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($room_id)
     {
-        if (($model = BalingasaHighSchoolRooms::findOne(['room_id' => $room_id])) !== null) {
+        if (($model = TblOfficialRoomTable::findOne(['room_id' => $room_id])) !== null) {
             return $model;
         }
 
