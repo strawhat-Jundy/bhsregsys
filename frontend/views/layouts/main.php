@@ -114,10 +114,10 @@ AppAsset::register($this);
         </a>
         <nav>
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Student</a></li>
-                <li><a href="">Schedule</a></li>
-                <li><a href="">Room</a></li>
+                <li><a href="/bhsregsys2/frontend/web">Home</a></li>
+                <li><a href="/bhsregsys2/frontend/web/students">Student</a></li>
+                <li><a href="/bhsregsys2/frontend/web/schedule">Schedule</a></li>
+                <li><a href="/bhsregsys2/frontend/web/rooms">Room</a></li>   
                 <li><a href="">Teacher</a></li>
                 <li><a href="">Subject</a></li>
                 <li><a href="">Summary</a></li>

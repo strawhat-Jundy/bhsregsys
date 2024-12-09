@@ -4,36 +4,44 @@ use frontend\models\BalingasaHighSchoolStudents;
 use frontend\models\BalingasaHighSchoolTeachers;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /** @var yii\web\View $this */
 /** @var frontend\models\Subject $model */
 /** @var yii\widgets\ActiveForm $form */
+
 ?>
 
 <div class="subject-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <!-- Subject Name Input -->
     <?= $form->field($model, 'subject_name')->textInput(['maxlength' => true]) ?>
 
+    <!-- Teacher Dropdown -->
     <?= $form->field($model, 'teacher_id')->dropDownList(
-        \yii\helpers\ArrayHelper::map(BalingasaHighSchoolTeachers::find()->all(), 'id', function ($Teachers) {
-                return $teachers->first_name . ' ' . $teachers->last_name;
-            }),
-        ['prompt' => 'Select Teacher'] // Optional: 'prompt' is the default option shown in the dropdown
+        ArrayHelper::map(
+            BalingasaHighSchoolTeachers::find()->all(),
+            'id',
+            fn($teacher) => $teacher->first_name . ' ' . $teacher->last_name
+        ),
+        ['prompt' => 'Select Teacher']
     )->label('Teacher Name') ?>
 
+    <!-- Students Dropdown (Only for non-create action) -->
     <?php if ($this->context->action->id !== 'create'): ?>
         <?= $form->field($model, 'students')->dropDownList(
-            \yii\helpers\ArrayHelper::map(BalingasaHighSchoolStudents::find()->all(), 'id', function ($students) {
-                    return $students->first_name . ' ' . $students->last_name;
-                }),
-            ['multiple' => 'multiple', 'size' => 6]
+            ArrayHelper::map(
+                BalingasaHighSchoolStudents::find()->all(),
+                'id',
+                fn($student) => $student->first_name . ' ' . $student->last_name
+            ),
+            ['multiple' => true, 'size' => 6]
         )->label('Students') ?>
     <?php endif; ?>
 
-
-
+    <!-- Submit Button -->
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
