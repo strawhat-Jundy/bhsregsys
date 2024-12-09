@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'teacher_id')->dropDownList(
         \yii\helpers\ArrayHelper::map(BalingasaHighSchoolTeachers::find()->all(), 'id', function ($Teachers) {
-                return $teacher->first_name . ' ' . $teacher->last_name;
+                return $teachers->first_name . ' ' . $teachers->last_name;
             }),
         ['prompt' => 'Select Teacher'] // Optional: 'prompt' is the default option shown in the dropdown
     )->label('Teacher Name') ?>
