@@ -83,7 +83,7 @@ class SubjectsSearch extends BalingasaHighSchoolSubjects
         }
 
         return $dataProvider;
-    }h
+    }
 }
 
 
