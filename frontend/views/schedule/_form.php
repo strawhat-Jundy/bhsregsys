@@ -19,19 +19,26 @@ use yii\widgets\ActiveForm;
     ])->label('Student Name')
     ?>
 
+    <?= $form->field($model, 'subject_id')->textInput() ?>
     <?= $form->field($model, 'subject_id')->dropDownList([], [
         'id' => 'subjects-dropdown',
         'prompt' => 'Select a Student',
+        'onchange' => 'updateSubjectId()',
     ])->label('Subject Name')
     ?>
-    <!-- 
-    <?= $form->field($model, 'teacher_id')->textInput() ?> -->
 
     <?= $form->field($model, 'teacher_id')->dropDownList([], [
         'id' => 'teacher-dropdown',
         'prompt' => 'Select a Teacher',
-    ])->label("Teacher's Surname")
-    ?>
+        'onchange' => 'updateTeacherId()',
+    ])->label("Teacher's Surname") ?>
+
+    <?= $form->field($model, 'teacher_id')->textInput([
+        'id' => 'teacher_id_input',
+        'readonly' => true, // Makes the text input read-only
+    ])->label('Teacher ID') ?>
+
+
 
     <?= $form->field($model, 'room_id')->dropDownList([], [
         'id' => 'room-dropdown',
@@ -63,6 +70,7 @@ use yii\widgets\ActiveForm;
 
     <?php ActiveForm::end();
     //script
+
     $this->registerJs("
     // jQuery to populate the dropdown with students
     $.ajax({
@@ -181,9 +189,24 @@ use yii\widgets\ActiveForm;
         }
     });
 
+ // JavaScript function to update teacher ID in the input field
+    function updateTeacherId() {
+        // Get the selected option from the teacher dropdown
+        var teacherDropdown = document.getElementById('teacher-dropdown');
+        var selectedValue = teacherDropdown.value;
+
+        // Set the text input value to the selected teacher's ID
+        var teacherIdInput = document.getElementById('teacher_id_input');
+        teacherIdInput.value = selectedValue;
+    }
+
+    // Event handler for the teacher dropdown to update the teacher ID input field
+    $('#teacher-dropdown').on('change', function() {
+        updateTeacherId(); // Call the updateTeacherId function when the dropdown changes
+    });
+
 ", \yii\web\View::POS_READY);
 
 
 
     ?>
-</div>
