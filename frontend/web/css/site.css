@@ -101,9 +101,9 @@ a.desc:after {
 {
     text-decoration: none;
 }
-.container{
-    margin: 0;
-}
 footer{
     display:none;
+}
+.container{
+    margin: 0 auto !important;
 }

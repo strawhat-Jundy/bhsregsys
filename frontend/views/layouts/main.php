@@ -102,6 +102,9 @@ AppAsset::register($this);
         .btn-yellow:hover {
             opacity: 0.8;
         }
+        .container{
+            margin: 0 auto !important;
+        }
     </style>
 </head>
 
