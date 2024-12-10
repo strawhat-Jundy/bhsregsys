@@ -2,16 +2,16 @@
 
 namespace frontend\controllers;
 
-use frontend\models\TblOfficialStudents;
-use frontend\models\students\studentsSearch;
+use frontend\models\TblOfficialSubjects;
+use frontend\models\subjects\StudentTableSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * StudentsController implements the CRUD actions for TblOfficialStudents model.
+ * SubjectsController implements the CRUD actions for TblOfficialSubjects model.
  */
-class StudentsController extends Controller
+class SubjectsController extends Controller
 {
     /**
      * @inheritDoc
@@ -32,13 +32,13 @@ class StudentsController extends Controller
     }
 
     /**
-     * Lists all TblOfficialStudents models.
+     * Lists all TblOfficialSubjects models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new studentsSearch();
+        $searchModel = new StudentTableSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -46,33 +46,32 @@ class StudentsController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-    public function 
 
     /**
-     * Displays a single TblOfficialStudents model.
-     * @param int $student_id Student ID
+     * Displays a single TblOfficialSubjects model.
+     * @param int $subject_id Subject ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($student_id)
+    public function actionView($subject_id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($student_id),
+            'model' => $this->findModel($subject_id),
         ]);
     }
 
     /**
-     * Creates a new TblOfficialStudents model.
+     * Creates a new TblOfficialSubjects model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new TblOfficialStudents();
+        $model = new TblOfficialSubjects();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'student_id' => $model->student_id]);
+                return $this->redirect(['view', 'subject_id' => $model->subject_id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -84,18 +83,18 @@ class StudentsController extends Controller
     }
 
     /**
-     * Updates an existing TblOfficialStudents model.
+     * Updates an existing TblOfficialSubjects model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $student_id Student ID
+     * @param int $subject_id Subject ID
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($student_id)
+    public function actionUpdate($subject_id)
     {
-        $model = $this->findModel($student_id);
+        $model = $this->findModel($subject_id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'student_id' => $model->student_id]);
+            return $this->redirect(['view', 'subject_id' => $model->subject_id]);
         }
 
         return $this->render('update', [
@@ -104,29 +103,29 @@ class StudentsController extends Controller
     }
 
     /**
-     * Deletes an existing TblOfficialStudents model.
+     * Deletes an existing TblOfficialSubjects model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $student_id Student ID
+     * @param int $subject_id Subject ID
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($student_id)
+    public function actionDelete($subject_id)
     {
-        $this->findModel($student_id)->delete();
+        $this->findModel($subject_id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the TblOfficialStudents model based on its primary key value.
+     * Finds the TblOfficialSubjects model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $student_id Student ID
-     * @return TblOfficialStudents the loaded model
+     * @param int $subject_id Subject ID
+     * @return TblOfficialSubjects the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($student_id)
+    protected function findModel($subject_id)
     {
-        if (($model = TblOfficialStudents::findOne(['student_id' => $student_id])) !== null) {
+        if (($model = TblOfficialSubjects::findOne(['subject_id' => $subject_id])) !== null) {
             return $model;
         }
 

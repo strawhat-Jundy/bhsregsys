@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\BalingasaHighSchoolSubjects $model */
+/** @var frontend\models\TblOfficialSubjects $model */
 
 $this->title = $model->subject_id;
-$this->params['breadcrumbs'][] = ['label' => 'Balingasa High School Subjects', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Tbl Official Subjects', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="balingasa-high-school-subjects-view">
+<div class="tbl-official-subjects-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
