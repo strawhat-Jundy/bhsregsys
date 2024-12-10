@@ -2,14 +2,14 @@
 
 namespace frontend\controllers;
 
-use frontend\models\BalingasaHighSchoolStudents;
-use frontend\models\student\studentSearch;
+use frontend\models\TblOfficialStudents;
+use frontend\models\students\StudentTableSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * StudentsController implements the CRUD actions for BalingasaHighSchoolStudents model.
+ * StudentsController implements the CRUD actions for TblOfficialStudents model.
  */
 class StudentsController extends Controller
 {
@@ -31,20 +31,14 @@ class StudentsController extends Controller
         );
     }
 
-    // public function actionGetSubjects(){
-    //     $subjects = Student::find()->select(['student_id', 'last_name'])->all();
-    //     $subjectList = \yii\helpers\ArrayHelper::map($subjects, 'id', 'name');
-    //     return $this->asJson($subjectList);
-    // }
-
     /**
-     * Lists all BalingasaHighSchoolStudents models.
+     * Lists all TblOfficialStudents models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new studentSearch();
+        $searchModel = new StudentTableSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -52,9 +46,14 @@ class StudentsController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    public function actionGetStudents(){
+        $students = TblOfficialStudents::find()->select(['student_id', 'last_name'])->all();
+        $studentsList = \yii\helpers\ArrayHelper::map($students, 'student_id', 'last_name');
+        return $this->asJson($studentsList);
+    }
 
     /**
-     * Displays a single BalingasaHighSchoolStudents model.
+     * Displays a single TblOfficialStudents model.
      * @param int $student_id Student ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -67,13 +66,13 @@ class StudentsController extends Controller
     }
 
     /**
-     * Creates a new BalingasaHighSchoolStudents model.
+     * Creates a new TblOfficialStudents model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new BalingasaHighSchoolStudents();
+        $model = new TblOfficialStudents();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -89,7 +88,7 @@ class StudentsController extends Controller
     }
 
     /**
-     * Updates an existing BalingasaHighSchoolStudents model.
+     * Updates an existing TblOfficialStudents model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $student_id Student ID
      * @return string|\yii\web\Response
@@ -109,7 +108,7 @@ class StudentsController extends Controller
     }
 
     /**
-     * Deletes an existing BalingasaHighSchoolStudents model.
+     * Deletes an existing TblOfficialStudents model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $student_id Student ID
      * @return \yii\web\Response
@@ -123,15 +122,15 @@ class StudentsController extends Controller
     }
 
     /**
-     * Finds the BalingasaHighSchoolStudents model based on its primary key value.
+     * Finds the TblOfficialStudents model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $student_id Student ID
-     * @return BalingasaHighSchoolStudents the loaded model
+     * @return TblOfficialStudents the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($student_id)
     {
-        if (($model = BalingasaHighSchoolStudents::findOne(['student_id' => $student_id])) !== null) {
+        if (($model = TblOfficialStudents::findOne(['student_id' => $student_id])) !== null) {
             return $model;
         }
 
