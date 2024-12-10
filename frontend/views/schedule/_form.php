@@ -42,12 +42,7 @@ use yii\widgets\ActiveForm;
 
     // added new droplist
 
-  <?=  $form->field($model, 'student_id')->dropDownList([], [
-    'id' => 'student-dropdown',
-    'prompt' => 'Select a Student',
-    ]); ?>
-    
-
+  
 
     <?= $form->field($model, 'status_id')->textInput() ?>
 
@@ -137,27 +132,6 @@ use yii\widgets\ActiveForm;
         error: function() {
             alert('Error in room');
         }
-    });
-
-     // jQuery to populate the dropdown with student
-    $.ajax({
-        url: '/bhsregsys2/frontend/web/teachers/get-students/', // Adjust the URL to match your controller/action
-        type: 'GET',
-        success: function(data) {
-            var dropdown = $('#student-dropdown');
-            dropdown.empty(); // Clear existing options
-            dropdown.append('<option value=\"\">Select a Student</option>'); // Add the default option
-            
-            // Loop through the returned data and append to dropdown
-            $.each(data, function(student_id, last_name) {
-                dropdown.append('<option value=\"' + student_id + '\">' + last_name + '</option>');
-                console.log(data);
-            });
-        },
-        error: function() {
-            alert('Error student dropdown list');
-        }
-          
     });
 
 ", \yii\web\View::POS_READY);

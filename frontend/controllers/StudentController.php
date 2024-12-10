@@ -46,12 +46,6 @@ class StudentController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-    
-    public function actionGetStudents(){
-        $teachers = TblOfficialStudents::find()->select(['student_id', 'last_name'])->all();
-        $TeacherList = \yii\helpers\ArrayHelper::map($students, 'student_id', 'last_name');
-        return $this->asJson($StudentList);
-    }
    
 
     /**
