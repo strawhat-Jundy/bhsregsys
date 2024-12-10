@@ -121,9 +121,9 @@ AppAsset::register($this);
                 <li><a href="/bhsregsys2/frontend/web/students">Student</a></li>
                 <li><a href="/bhsregsys2/frontend/web/schedule">Schedule</a></li>
                 <li><a href="/bhsregsys2/frontend/web/rooms">Room</a></li>   
-                <li><a href="">Teacher</a></li>
-                <li><a href="">Subject</a></li>
-                <li><a href="">Summary</a></li>
+                <li><a href="/bhsregsys2/frontend/web/teachers">Teacher</a></li>
+                <li><a href="/bhsregsys2/frontend/web/subjects">Subject</a></li>
+                <li><a href="/bhsregsys2/frontend/web/summary">Summary</a></li>
             </ul>
         </nav>
         <div class="registration">
