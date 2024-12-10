@@ -3,11 +3,11 @@
 namespace frontend\controllers;
 
 use frontend\models\TblOfficialStudents;
-<<<<<<< HEAD
+
 use frontend\models\students\StudentTableSearch;
-=======
+
 use frontend\models\students\StudentsSearch;
->>>>>>> 0bf0e1f (students table fixed)
+
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -42,11 +42,10 @@ class StudentsController extends Controller
      */
     public function actionIndex()
     {
-<<<<<<< HEAD
+
         $searchModel = new StudentTableSearch();
-=======
+
         $searchModel = new StudentsSearch();
->>>>>>> 0bf0e1f (students table fixed)
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
