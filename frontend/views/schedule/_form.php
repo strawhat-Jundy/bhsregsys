@@ -33,12 +33,12 @@ use yii\widgets\ActiveForm;
     'prompt' => 'Select a Room',
     ]);
     
-    // ?>
-    // <?= $form->field($model, 'room_id')->textInput() ?>
+    ?>
+    <?= $form->field($model, 'room_id')->textInput() ?>
 
     <?= $form->field($model, 'student_id')->textInput() ?>
 
-    // added new droplist
+   
 
   
 
