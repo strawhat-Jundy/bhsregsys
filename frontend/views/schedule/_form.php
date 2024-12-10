@@ -13,34 +13,36 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <!-- <?= $form->field($model, 'subject_id')->textInput() ?> -->
-    
+
     <?= $form->field($model, 'subject_id')->dropDownList([], [
-    'id' => 'student-dropdown',
-    'prompt' => 'Select a Student',
+        'id' => 'student-dropdown',
+        'prompt' => 'Select a Student',
     ])->label('Subject Name')
     ?>
-<!-- 
+    <!-- 
     <?= $form->field($model, 'teacher_id')->textInput() ?> -->
 
-    <?= $form->field($model, 'teacher_id')->dropDownList(   [], [
-    'id' => 'teacher-dropdown',
-    'prompt' => 'Select a Teacher',
+    <?= $form->field($model, 'teacher_id')->dropDownList([], [
+        'id' => 'teacher-dropdown',
+        'prompt' => 'Select a Teacher',
     ])->label("Teacher's Surname")
     ?>
 
-<?= $form->field($model, 'room_id')->dropDownList(   [], [
-    'id' => 'room-dropdown',
-    'prompt' => 'Select a Room',
-    ]);
-    
+    <?= $form->field($model, 'room_id')->dropDownList([], [
+        'id' => 'room-dropdown',
+        'prompt' => 'Select a Room',
+    ])->label('Room')
     ?>
-    <?= $form->field($model, 'room_id')->textInput() ?>
 
-    <?= $form->field($model, 'student_id')->textInput() ?>
+<?= $form->field($model, 'status_id')->dropDownList([], [
+        'id' => 'status-dropdown',
+        'prompt' => 'Select a status',
+    ])->label('Status')
+    ?>
 
-   
 
-  
+
+
 
     <?= $form->field($model, 'status_id')->textInput() ?>
 
@@ -52,8 +54,8 @@ use yii\widgets\ActiveForm;
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
-    <?php ActiveForm::end(); 
-//script
+    <?php ActiveForm::end();
+    //script
     $this->registerJs("
     // jQuery to populate the dropdown with students
     $.ajax({
@@ -132,9 +134,29 @@ use yii\widgets\ActiveForm;
         }
     });
 
+    // jQuery to populate the dropdown with status
+    $.ajax({
+        url: '/bhsregsys2/frontend/web/status/get-status/', // Adjust the URL to match your controller/action
+        type: 'GET',
+        success: function(data) {
+            var dropdown = $('#status-dropdown');
+            dropdown.empty(); // Clear existing options
+            dropdown.append('<option value=\"\">Select a status</option>'); // Add the default option
+            
+            // Loop through the returned data and append to dropdown
+            $.each(data, function(status_id, Status) {
+                dropdown.append('<option value=\"' + status_id + '\">' + Status + '</option>');
+                console.log(data);
+            });
+        },
+        error: function() {
+            alert('ayaw ng status');
+        }
+    });
+
 ", \yii\web\View::POS_READY);
 
 
 
-?>
+    ?>
 </div>
