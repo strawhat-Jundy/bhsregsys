@@ -73,7 +73,7 @@ class RoomsController extends Controller
     }
 
     /**
-     * Creates a new BalingasaHighSchoolRooms model.
+     * s a new BalingasaHighSchoolRooms model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */

@@ -68,7 +68,7 @@ class ScheduleController extends Controller
     }
 
     /**
-     * Creates a new TblOfficialFinalSchedule model.
+     * s a new TblOfficialFinalSchedule model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
