@@ -74,16 +74,16 @@ use yii\widgets\ActiveForm;
     $this->registerJs("
     // jQuery to populate the dropdown with students
     $.ajax({
-        url: '/bhsregsys2/frontend/web/subject/get-subjects/', // Adjust the URL to match your controller/action
+        url: '/bhsregsys2/frontend/web/students/get-students/', // Adjust the URL to match your controller/action
         type: 'GET',
         success: function(data) {
-            var dropdown = $('#subjects-dropdown');
+            var dropdown = $('#students-dropdown');
             dropdown.empty(); // Clear existing options
-            dropdown.append('<option value=\"\">Select a Subject</option>'); // Add the default option
+            dropdown.append('<option value=\"\">Select a student</option>'); // Add the default option
             
             // Loop through the returned data and append to dropdown
-            $.each(data, function(subject_id, subject_name) {
-                dropdown.append('<option value=\"' + subject_id + '\">' + subject_name + '</option>');
+            $.each(data, function(student_id, last_name) {
+                dropdown.append('<option value=\"' + student_id + '\">' + last_name + '</option>');
                 console.log(data);
             });
         },

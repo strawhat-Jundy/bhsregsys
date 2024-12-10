@@ -47,9 +47,9 @@ class StudentsController extends Controller
         ]);
     }
    public function actionGetStudents(){
-    $subjects = TblOfficialStudents::find()->select(['student_id', 'last_name'])->all();
-    $subjectList = \yii\helpers\ArrayHelper::map($subjects, 'student_id', 'last_name');
-    return $this->asJson($subjectList);
+    $students = TblOfficialStudents::find()->select(['student_id', 'last_name'])->all();
+    $studentsList = \yii\helpers\ArrayHelper::map($students, 'student_id', 'last_name');
+    return $this->asJson($studentsList);
    }
     /**
      * Displays a single TblOfficialStudents model.
