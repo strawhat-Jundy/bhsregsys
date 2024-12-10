@@ -9,7 +9,7 @@ use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
-
+use yii\Helpers\Url;
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -113,7 +113,7 @@ AppAsset::register($this);
 
     <header>
         <a href="">
-            <img src="./images/logo.png">
+            <img src="<?= Url::to("@web/images/logo.png")?>">
         </a>
         <nav>
             <ul>
