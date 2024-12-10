@@ -12,10 +12,15 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <!-- <?= $form->field($model, 'subject_id')->textInput() ?> -->
+    <!-- <?= $form->field($model, 'student_id')->textInput() ?> -->
+    <?= $form->field($model, 'student_id')->dropDownList([], [
+        'id' => 'student-dropdown',
+        'prompt' => 'Select a Student',
+    ])->label('Student Name')
+    ?>
 
     <?= $form->field($model, 'subject_id')->dropDownList([], [
-        'id' => 'student-dropdown',
+        'id' => 'subjects-dropdown',
         'prompt' => 'Select a Student',
     ])->label('Subject Name')
     ?>
@@ -34,21 +39,23 @@ use yii\widgets\ActiveForm;
     ])->label('Room')
     ?>
 
-<?= $form->field($model, 'status_id')->dropDownList([], [
+    <?= $form->field($model, 'status_id')->dropDownList([], [
         'id' => 'status-dropdown',
         'prompt' => 'Select a status',
     ])->label('Status')
     ?>
 
+    <?= $form->field($model, 'weekday_id')->dropDownList([], [
+        'id' => 'weekday-dropdown',
+        'prompt' => 'Select from Monday to Sunday',
+    ])->label('Day')
+    ?>
 
+    <!-- <?= $form->field($model, 'status_id')->textInput() ?> -->
 
+    <!-- <?= $form->field($model, 'weekday_id')->textInput() ?>
 
-
-    <?= $form->field($model, 'status_id')->textInput() ?>
-
-    <?= $form->field($model, 'weekday_id')->textInput() ?>
-
-    <?= $form->field($model, 'time_id')->textInput() ?>
+    <?= $form->field($model, 'time_id')->textInput() ?> -->
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
@@ -62,9 +69,9 @@ use yii\widgets\ActiveForm;
         url: '/bhsregsys2/frontend/web/subject/get-subjects/', // Adjust the URL to match your controller/action
         type: 'GET',
         success: function(data) {
-            var dropdown = $('#student-dropdown');
+            var dropdown = $('#subjects-dropdown');
             dropdown.empty(); // Clear existing options
-            dropdown.append('<option value=\"\">Select a Student</option>'); // Add the default option
+            dropdown.append('<option value=\"\">Select a Subject</option>'); // Add the default option
             
             // Loop through the returned data and append to dropdown
             $.each(data, function(subject_id, subject_name) {
@@ -151,6 +158,26 @@ use yii\widgets\ActiveForm;
         },
         error: function() {
             alert('ayaw ng status');
+        }
+    });
+
+    // jQuery to populate the dropdown with WEEKDAY
+    $.ajax({
+        url: '/bhsregsys2/frontend/web/weekday/get-weekday/', // Adjust the URL to match your controller/action
+        type: 'GET',
+        success: function(data) {
+            var dropdown = $('#weekday-dropdown');
+            dropdown.empty(); // Clear existing options
+            dropdown.append('<option value=\"\">Select from Monday to Sunday</option>'); // Add the default option
+            
+            // Loop through the returned data and append to dropdown
+            $.each(data, function(weekday_id, Day) {
+                dropdown.append('<option value=\"' + weekday_id + '\">' + Day + '</option>');
+                console.log(data);
+            });
+        },
+        error: function() {
+            alert('ayaw ng weekdays');
         }
     });
 
