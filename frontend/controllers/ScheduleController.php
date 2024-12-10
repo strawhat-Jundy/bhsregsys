@@ -3,13 +3,10 @@
 namespace frontend\controllers;
 
 use frontend\models\TblOfficialFinalSchedule;
-use frontend\models\schedule\scheduleSearch;
+use frontend\models\schedule;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-//dagdag
-use yii\data\ActiveDataProvider;
-
 
 /**
  * ScheduleController implements the CRUD actions for TblOfficialFinalSchedule model.
@@ -41,13 +38,9 @@ class ScheduleController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new scheduleSearch();
+        $searchModel = new schedule();
         $dataProvider = $searchModel->search($this->request->queryParams);
-        //DAGDAG
-        // $dataProvider = new ActiveDataProvider([
-        //     'query' => TblOfficialFinalSchedule::find()->with(['subject', 'teacher', 'room', 'student', 'status', 'weekday', 'time']),
-        // ]);
-        //DAGDAG
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -68,7 +61,7 @@ class ScheduleController extends Controller
     }
 
     /**
-     * s a new TblOfficialFinalSchedule model.
+     * Creates a new TblOfficialFinalSchedule model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
