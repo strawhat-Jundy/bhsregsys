@@ -126,7 +126,7 @@ use yii\widgets\ActiveForm;
             });
         },
         error: function() {
-            alert('room na dis.');
+            alert('Error in room');
         }
     });
 ", \yii\web\View::POS_READY);
