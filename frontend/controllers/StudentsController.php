@@ -4,7 +4,11 @@ namespace frontend\controllers;
 
 use frontend\models\TblOfficialStudents;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use frontend\models\students\StudentTableSearch;
+=======
+use frontend\models\students\StudentsSearch;
+>>>>>>> 0bf0e1f (students table fixed)
 =======
 use frontend\models\students\StudentsSearch;
 >>>>>>> 0bf0e1f (students table fixed)
@@ -43,7 +47,11 @@ class StudentsController extends Controller
     public function actionIndex()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $searchModel = new StudentTableSearch();
+=======
+        $searchModel = new StudentsSearch();
+>>>>>>> 0bf0e1f (students table fixed)
 =======
         $searchModel = new StudentsSearch();
 >>>>>>> 0bf0e1f (students table fixed)
