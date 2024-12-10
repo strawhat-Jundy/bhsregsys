@@ -23,20 +23,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= GridView::widget([
+    <!-- <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'Schedule_ID',
-            'subject_id',
-            'teacher_id',
-            'room_id',
-            'student_id',
+        
+            // 'subject_id',
+            // 'teacher_id',
+            // 'room_id',
+            // 'student_id',
             //'status_id',
             //'weekday_id',
             //'time_id:datetime',
+            
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, TblOfficialFinalSchedule $model, $key, $index, $column) {
@@ -44,7 +46,66 @@ $this->params['breadcrumbs'][] = $this->title;
                  }
             ],
         ],
-    ]); ?>
+    ]); ?> -->
+
+<?= GridView::widget([
+    'dataProvider' => $dataProvider,
+    'filterModel' => $searchModel,
+    'columns' => [
+        ['class' => 'yii\grid\SerialColumn'],
+
+        'Schedule_ID',
+        [
+            'attribute' => 'subject_id',
+            'value' => function ($model) {
+                return $model->subject ? $model->subject->subject_name : null; // Adjust 'subject_name' to match your column in the subject table
+            },
+            'label' => 'Subject',
+        ],
+        // Display related Subject name
+        [
+            'attribute' => 'subject_id',
+            'value' => function ($model) {
+                return $model->subject ? $model->subject->subject_name : null; // Adjust 'subject_name' to match your column in the subject table
+            },
+            'label' => 'Subject',
+        ],
+
+        // Display related Teacher last name
+        [
+            'attribute' => 'teacher_id',
+            'value' => function ($model) {
+                return $model->teacher ? $model->teacher->last_name : null; // Adjust 'last_name' to match your column in the teacher table
+            },
+            'label' => 'Teacher',
+        ],
+
+        // Display related Room number
+        [
+            'attribute' => 'room_id',
+            'value' => function ($model) {
+                return $model->room ? $model->room->Room_Number : null; // Adjust 'room_number' to match your column in the room table
+            },
+            'label' => 'Room',
+        ],
+
+        // Display related Student full name
+        [
+            'attribute' => 'student_id',
+            'value' => function ($model) {
+                return $model->student ? $model->student->last_name : null; // Adjust 'full_name' to match your column in the student table
+            },
+            'label' => 'Student',
+        ],
+
+        ['class' => ActionColumn::className(),
+            'urlCreator' => function ($action, TblOfficialFinalSchedule $model, $key, $index, $column) {
+                return Url::toRoute([$action, 'Schedule_ID' => $model->Schedule_ID]);
+            }
+        ],
+    ],
+]); ?>
+
 
 
 </div>
