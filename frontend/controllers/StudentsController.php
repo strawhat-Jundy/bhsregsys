@@ -3,11 +3,7 @@
 namespace frontend\controllers;
 
 use frontend\models\TblOfficialStudents;
-
-use frontend\models\students\StudentTableSearch;
-
 use frontend\models\students\StudentsSearch;
-
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -42,9 +38,6 @@ class StudentsController extends Controller
      */
     public function actionIndex()
     {
-
-        $searchModel = new StudentTableSearch();
-
         $searchModel = new StudentsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
@@ -52,11 +45,6 @@ class StudentsController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-    }
-    public function actionGetStudents(){
-        $students = TblOfficialStudents::find()->select(['student_id', 'last_name'])->all();
-        $studentsList = \yii\helpers\ArrayHelper::map($students, 'student_id', 'last_name');
-        return $this->asJson($studentsList);
     }
 
     /**
