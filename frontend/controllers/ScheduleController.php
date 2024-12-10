@@ -3,7 +3,7 @@
 namespace frontend\controllers;
 
 use frontend\models\TblOfficialFinalSchedule;
-use frontend\models\schedule;
+use frontend\models\schedule\scheduleSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -38,7 +38,7 @@ class ScheduleController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new schedule();
+        $searchModel = new scheduleSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [

@@ -1,15 +1,15 @@
 <?php
 
-namespace frontend\models;
+namespace frontend\models\schedule;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use frontend\models\TblOfficialFinalSchedule;
 
 /**
- * schedule represents the model behind the search form of `frontend\models\TblOfficialFinalSchedule`.
+ * scheduleSearch represents the model behind the search form of `frontend\models\TblOfficialFinalSchedule`.
  */
-class schedule extends TblOfficialFinalSchedule
+class scheduleSearch extends TblOfficialFinalSchedule
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,7 @@ class schedule extends TblOfficialFinalSchedule
     public function rules()
     {
         return [
-            [['Schedule_ID', 'subject_id', 'teacher_id', 'room_id', 'student_id'], 'integer'],
-            [['Status', 'Day_Schedule', 'Time_Schedule', 'Room'], 'safe'],
+            [['Schedule_ID', 'subject_id', 'teacher_id', 'room_id', 'student_id', 'status_id', 'weekday_id', 'time_id'], 'integer'],
         ];
     }
 
@@ -63,12 +62,10 @@ class schedule extends TblOfficialFinalSchedule
             'teacher_id' => $this->teacher_id,
             'room_id' => $this->room_id,
             'student_id' => $this->student_id,
+            'status_id' => $this->status_id,
+            'weekday_id' => $this->weekday_id,
+            'time_id' => $this->time_id,
         ]);
-
-        $query->andFilterWhere(['like', 'Status', $this->Status])
-            ->andFilterWhere(['like', 'Day_Schedule', $this->Day_Schedule])
-            ->andFilterWhere(['like', 'Time_Schedule', $this->Time_Schedule])
-            ->andFilterWhere(['like', 'Room', $this->Room]);
 
         return $dataProvider;
     }
