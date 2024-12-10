@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\BalingasaHighSchoolStudents $model */
+/** @var frontend\models\TblOfficialStudents $model */
 
 $this->title = $model->student_id;
-$this->params['breadcrumbs'][] = ['label' => 'Balingasa High School Students', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Tbl Official Students', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="balingasa-high-school-students-view">
+<div class="tbl-official-students-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -44,38 +44,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'language',
             'middle_name',
         ],
-
-<<<<<<< HEAD
-
-   'label' => 'Subjects', // Custom label for subjects
-   'value' => function ($model) {
-
-   // Get the related subjects via the student-subject relationship
-   $subjects = $model->studentsSubjects;
-   // Extract the subject names
-   $subjectNames = [];
-   foreach ($subjects as $studentSubject) {
-   $subjectNames[] = $studentsSubject->subject->subject_name; // Assuming the 'subject' relation exists in StudentsSubject
-   }
-   // Return a comma-separated list of subject names
-   return implode(', ', $subjectNames);
-   },
-=======
-// NILAGAY NI KEN
-        'label' => 'Subjects', // Custom label for subjects
-        'value' => function ($model) {
-     
-        // Get the related subjects via the student-subject relationship
-        $subjects = $model->studentsSubjects;
-        // Extract the subject names
-        $subjectNames = [];
-        foreach ($subjects as $studentsSubjects) {
-        $subjectNames[] = $studentsSubjects->subject->subject_name; // Assuming the 'subject' relation exists in StudentsSubject
-        }
-        // Return a comma-separated list of subject names
-        return implode(', ', $subjectNames);
-        }, 
->>>>>>> d5c19bb201b53749ac549f89a45a72d14e3401da
     ]) ?>
 
 </div>

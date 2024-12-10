@@ -17,8 +17,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'subject_id')->dropDownList([], [
     'id' => 'student-dropdown',
     'prompt' => 'Select a Student',
-    ]);
-        
+    ])->label('Subject Name')
     ?>
 <!-- 
     <?= $form->field($model, 'teacher_id')->textInput() ?> -->
@@ -26,8 +25,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'teacher_id')->dropDownList(   [], [
     'id' => 'teacher-dropdown',
     'prompt' => 'Select a Teacher',
-    ]);
-    
+    ])->label("Teacher's Surname")
     ?>
 
 <?= $form->field($model, 'room_id')->dropDownList(   [], [

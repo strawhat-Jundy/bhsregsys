@@ -1,24 +1,24 @@
 <?php
 
-use frontend\models\BalingasaHighSchoolStudents;
+use frontend\models\TblOfficialStudents;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\student\studentSearch $searchModel */
+/** @var frontend\models\students\StudentsSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Balingasa High School Students';
+$this->title = 'Tbl Official Students';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="balingasa-high-school-students-index">
+<div class="tbl-official-students-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Balingasa High School Students', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Tbl Official Students', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'middle_name',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, BalingasaHighSchoolStudents $model, $key, $index, $column) {
+                'urlCreator' => function ($action, TblOfficialStudents $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'student_id' => $model->student_id]);
                  }
             ],

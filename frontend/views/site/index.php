@@ -15,7 +15,7 @@ use yii\helpers\Url;
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
 </head>
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
 <body>
     <!-- <header>
         <a href="">
@@ -40,7 +40,7 @@ use yii\helpers\Url;
             <button class="btn-yellow" id="">Log In</button>
         </div>
     </header> -->
-=======
+<!-- ======= -->
 
 <body>
     <!-- <header>
@@ -67,7 +67,7 @@ use yii\helpers\Url;
                 <button class="btn-yellow" id="">Log In</button>
             </div>
         </header> -->
->>>>>>> b3bf65b (justification of index.php and removal of excess header)
+<!-- >>>>>>> b3bf65b (justification of index.php and removal of excess header) -->
     <main>
         <div id="hero">
             <div class="hero-text">

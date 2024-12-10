@@ -158,8 +158,8 @@ nav li > a:hover{
 }
 .about-ttl{
     position: absolute;
-    top: -10px;
-    left: 35px;
+    top: -15px;
+    left: -15vmin;
     border-bottom: 2px solid #ffb915;
     padding-bottom: .5em;
     font-family: 'manrope', sans-serif;

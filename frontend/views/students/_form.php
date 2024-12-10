@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\BalingasaHighSchoolStudents $model */
+/** @var frontend\models\TblOfficialStudents $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="balingasa-high-school-students-form">
+<div class="tbl-official-students-form">
 
     <?php $form = ActiveForm::begin(); ?>
 

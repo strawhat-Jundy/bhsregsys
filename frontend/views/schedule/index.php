@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'student_id',
                 'value' => 'student.last_name', 
-            ],
+            ],  
             ['class' => 'yii\grid\ActionColumn',
             //DAGDAG
             'urlCreator' => function ($action, $model, $key, $index) {
