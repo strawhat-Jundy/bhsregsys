@@ -64,7 +64,7 @@ $this->params['breadcrumbs'][] = $this->title;
         background-position: center;
     }
    
-    /* Optional: Adjust margin for title */
+   
     .balingasa-high-school-rooms-index h1 {
         margin-top: 40px;
         
