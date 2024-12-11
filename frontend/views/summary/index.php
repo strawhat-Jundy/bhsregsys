@@ -21,7 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Tbl Official Summary', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -30,8 +31,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'summary_id',
-            'Schedule_ID',
+            [
+                'attribute' => 'Schedule_ID',
+                'value' => function ($model) {
+                    return $model->Schedule_ID ? $model->Schedule_ID->Time_Schedule : null;
+                },
+                'label' => 'Schedule'
+            ],
+
             'subject_id',
+
             'teacher_id',
             'room_id',
             //'status_id',
@@ -42,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, TblOfficialSummary $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'summary_id' => $model->summary_id]);
-                 }
+                }
             ],
         ],
     ]); ?>
