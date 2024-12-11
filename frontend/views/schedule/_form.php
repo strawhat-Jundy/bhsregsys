@@ -22,10 +22,26 @@ use yii\widgets\ActiveForm;
 
 
     <?= $form->field($model, 'teacher_id')->textInput() ?>
+    <?= $form->field($model, 'teacher_id')->dropDownList([], [
+        'id' => 'teachers-dropdown',
+        'prompt' => 'Select a Teacher',
+    ])->label('Teacher Name')
+    ?>
+   
 
     <?= $form->field($model, 'room_id')->textInput() ?>
+    <?= $form->field($model, 'room_id')->dropDownList([], [
+        'id' => 'room-dropdown',
+        'prompt' => 'Select a Room',
+    ])->label('Room')
+    ?>
 
     <?= $form->field($model, 'student_id')->textInput() ?>
+    <?= $form->field($model, 'student_id')->dropDownList([], [
+        'id' => 'students-dropdown',
+        'prompt' => 'Select a Student',
+    ])->label('Student')
+    ?>
 
     <?= $form->field($model, 'status_id')->textInput() ?>
 
@@ -40,7 +56,7 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); 
 
     $this->registerJs("
-    // jQuery to populate the dropdown with students
+    // jQuery to populate the dropdown with subjects
     $.ajax({
         url: '/bhsregsys2/frontend/web/subjects/get-subjects/', // Adjust the URL to match your controller/action
         type: 'GET',
@@ -60,22 +76,68 @@ use yii\widgets\ActiveForm;
         }
     });
 
-    // JavaScript function to update teacher ID in the input field
-    function updateTeacherId() {
-        // Get the selected option from the teacher dropdown
-        var teacherDropdown = document.getElementById('teacher-dropdown');
-        var selectedValue = teacherDropdown.value;
-
-        // Set the text input value to the selected teacher's ID
-        var teacherIdInput = document.getElementById('teacher_id_input');
-        teacherIdInput.value = selectedValue;
-    }
-
-    // Event handler for the teacher dropdown to update the teacher ID input field
-    $('#teacher-dropdown').on('change', function() {
-        updateTeacherId(); // Call the updateTeacherId function when the dropdown changes
+     // jQuery to populate the dropdown with teachers
+    $.ajax({
+        url: '/bhsregsys2/frontend/web/teachers/get-teachers/', // Adjust the URL to match your controller/action
+        type: 'GET',
+        success: function(data) {
+            var dropdown = $('#teachers-dropdown');
+            dropdown.empty(); // Clear existing options
+            dropdown.append('<option value=\"\">Select a teacher</option>'); // Add the default option
+            
+            // Loop through the returned data and append to dropdown
+            $.each(data, function(teacher_id, last_name) {
+                dropdown.append('<option value=\"' + teacher_id + '\">' + last_name + '</option>');
+                console.log(data);
+            });
+        },
+        error: function() {
+            alert('naglibog na ko.');
+        }
     });
 
+     // jQuery to populate the dropdown with room
+    $.ajax({
+        url: '/bhsregsys2/frontend/web/room/get-room/', // Adjust the URL to match your controller/action
+        type: 'GET',
+        success: function(data) {
+            var dropdown = $('#room-dropdown');
+            dropdown.empty(); // Clear existing options
+            dropdown.append('<option value=\"\">Select a room</option>'); // Add the default option
+            
+            // Loop through the returned data and append to dropdown
+            $.each(data, function(room_id, Room) {
+                dropdown.append('<option value=\"' + room_id + '\">' + Room + '</option>');
+                console.log(data);
+            });
+        },
+        error: function() {
+            alert('room');
+        }
+    });
+
+     // jQuery to populate the dropdown with students
+    $.ajax({
+        url: '/bhsregsys2/frontend/web/students/get-students/', // Adjust the URL to match your controller/action
+        type: 'GET',
+        success: function(data) {
+            var dropdown = $('#students-dropdown');
+            dropdown.empty(); // Clear existing options
+            dropdown.append('<option value=\"\">Select a students</option>'); // Add the default option
+            
+            // Loop through the returned data and append to dropdown
+            $.each(data, function(student_id, last_name) {
+                dropdown.append('<option value=\"' + student_id + '\">' + last_name + '</option>');
+                console.log(data);
+            });
+        },
+        error: function() {
+            alert('naglibog na ko.');
+        }
+    });
+
+
+   
 
 
 ", \yii\web\View::POS_READY);

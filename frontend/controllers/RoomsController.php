@@ -4,7 +4,6 @@ namespace frontend\controllers;
 
 use frontend\models\BalingasaHighSchoolRooms;
 use frontend\models\TblOfficialRoomTable;
-
 use frontend\models\rooms\roomsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -49,14 +48,7 @@ class RoomsController extends Controller
         ]);
     }
 
-     public function actionGetRoom(){ 
-    $room = TblOfficialRoomTable::find()->select(['room_id', 'Room_Number'])->all();
-    $roomList = \yii\helpers\ArrayHelper::map($room, 'room_id', 'Room_Number');
-    return $this->asJson($roomList);
-
-
-}
-
+  
 
 
     /**
@@ -71,6 +63,12 @@ class RoomsController extends Controller
             'model' => $this->findModel($room_id),
         ]);
     }
+
+    public function actionGetRoom(){
+        $room = TblOfficialRoomTable::find()->select(['room_id', 'Room_Number'])->all();
+        $roomList = \yii\helpers\ArrayHelper::map($room, 'room_id', 'Room_Number');
+        return $this->asJson($roomList);
+    }   
 
     /**
      * s a new BalingasaHighSchoolRooms model.

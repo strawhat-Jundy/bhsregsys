@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use frontend\models\TblOfficialFinalSchedule;
 use frontend\models\schedule\scheduleSearch;
+use frontend\models\TblOfficialStudents;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -80,6 +81,12 @@ class StudentsController extends Controller
         return $this->render('create', [
             'model' => $model,
         ]);
+    }
+
+    public function actionGetStudents(){
+        $students = TblOfficialStudents::find()->select(['student_id', 'last_name'])->all();
+        $studentsList = \yii\helpers\ArrayHelper::map($students, 'student_id', 'last_name');
+        return $this->asJson($studentsList);
     }
 
     /**
