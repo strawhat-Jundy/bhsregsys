@@ -44,6 +44,10 @@ header img {
   width: 75px;
   cursor: pointer;
 }
+nav {
+  position: relative;
+  top: 1vmin;
+}
 nav ul {
   display: flex;
 }
