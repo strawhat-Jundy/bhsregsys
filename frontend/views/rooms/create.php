@@ -28,10 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <!-- Internal CSS -->
 <style>
  body {
-        background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM7c7yBTlLpjPEWRXC66i45xwIr35nFQ6Y-1H8OAdDf-rHYByT6lHgKdQCYMxZcDzOwD8wpxqGrbU9LCI0AVb0u6NZOsbg7T04vP_8XgH8Y36Q1R0QXYabCBnBI3hoXoggagvKeHx-Gjx7bKSoXx8iv=w987-h1316-s-no-gm?authuser=0'); /* Replace this link */
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+    background: #f5c400;
+       
     }
 
     .custom-title {
