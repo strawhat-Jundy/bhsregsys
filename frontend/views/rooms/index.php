@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
     <p class="create-room">
-        <?= Html::a('Create Balingasa High School Rooms', ['create'], ['class' => 'btn btn-success custom-create-btn']) ?>
+        <?= Html::a('Add New BHS Rooms', ['create'], ['class' => 'btn btn-success custom-create-btn']) ?>
     </p>
 
 
@@ -79,8 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
             text-align: center;
             text-decoration: underline ; 
             text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-            margin-bottom: 15px;
-         
+            margin-bottom: 15px;       
             border-radius: 40px;
         }
 

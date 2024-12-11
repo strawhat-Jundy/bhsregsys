@@ -23,7 +23,7 @@ $this->registerCssFile("https://fonts.googleapis.com/css2?family=Chonburi&family
     <h1  class="custom-title" ><?= Html::encode($this->title) ?></h1>
 
     <p class="create-schedule">
-        <?= Html::a('Create BHS Schedule', ['create'], ['class' => 'btn btn-success  custom-create-btn']) ?>
+        <?= Html::a('Create New Class Schedule', ['create'], ['class' => 'btn btn-success  custom-create-btn']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
