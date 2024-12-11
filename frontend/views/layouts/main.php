@@ -169,7 +169,7 @@ nav li > a:hover {
 
     <header>
         <a href="">
-            <img src="images/logo.png" alt="BHS REGISTRY SYSTEM LOGO">
+            <img src="<?= Url::to('@web/images/logo.png')?>">
         </a>
         <nav>
             <ul class="sidebar">
