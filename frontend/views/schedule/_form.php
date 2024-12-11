@@ -14,12 +14,12 @@ use yii\widgets\ActiveForm;
 
     <!-- <?= $form->field($model, 'student_id')->textInput() ?> -->
     <?= $form->field($model, 'student_id')->dropDownList([], [
-        'id' => 'student-dropdown',
+        'id' => 'students-dropdown',
         'prompt' => 'Select a Student',
     ])->label('Student Name')
     ?>
 
-    <?= $form->field($model, 'subject_id')->textInput() ?>
+    <!-- <?= $form->field($model, 'subject_id')->textInput() ?> -->
     <?= $form->field($model, 'subject_id')->dropDownList([], [
         'id' => 'subjects-dropdown',
         'prompt' => 'Select a Student',
@@ -84,6 +84,26 @@ use yii\widgets\ActiveForm;
             // Loop through the returned data and append to dropdown
             $.each(data, function(student_id, last_name) {
                 dropdown.append('<option value=\"' + student_id + '\">' + last_name + '</option>');
+                console.log(data);
+            });
+        },
+        error: function() {
+            alert('naglibog na ko.');
+        }
+    });
+
+     // jQuery to populate the dropdown with subjects
+    $.ajax({
+        url: '/bhsregsys2/frontend/web/subjects/get-subjects/', // Adjust the URL to match your controller/action
+        type: 'GET',
+        success: function(data) {
+            var dropdown = $('#subjects-dropdown');
+            dropdown.empty(); // Clear existing options
+            dropdown.append('<option value=\"\">Select a subject</option>'); // Add the default option
+            
+            // Loop through the returned data and append to dropdown
+            $.each(data, function(subject_id, subject_name) {
+                dropdown.append('<option value=\"' + subject_id + '\">' + subject_name + '</option>');
                 console.log(data);
             });
         },

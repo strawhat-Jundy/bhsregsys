@@ -60,6 +60,13 @@ class SubjectsController extends Controller
         ]);
     }
 
+    public function actionGetSubjects(){
+        $subjects = TblOfficialSubjects::find()->select(['subject_id', 'subject_name'])->all();
+        $subjectList = \yii\helpers\ArrayHelper::map($subjects, 'subject_id', 'subject_name');
+        return $this->asJson($subjectList);
+    }
+
+
     /**
      * Creates a new TblOfficialSubjects model.
      * If creation is successful, the browser will be redirected to the 'view' page.

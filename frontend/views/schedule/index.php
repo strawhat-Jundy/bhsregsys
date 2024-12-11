@@ -48,13 +48,13 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?> -->
 
-<?= GridView::widget([
+ <?= GridView::widget([
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
     'columns' => [
         ['class' => 'yii\grid\SerialColumn'],
 
-        'Schedule_ID',
+        // 'Schedule_ID', 
         [
             'attribute' => 'subject_id',
             'value' => function ($model) {
@@ -63,13 +63,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'label' => 'Subject',
         ],
         // Display related Subject name
-        [
-            'attribute' => 'subject_id',
-            'value' => function ($model) {
-                return $model->subject ? $model->subject->subject_name : null; // Adjust 'subject_name' to match your column in the subject table
-            },
-            'label' => 'Subject',
-        ],
+        // [
+        //     'attribute' => 'subject_id',
+        //     'value' => function ($model) {
+        //         return $model->subject ? $model->subject->subject_name : null; // Adjust 'subject_name' to match your column in the subject table
+        //     },
+        //     'label' => 'Subject',
+        // ],
 
         // Display related Teacher last name
         [
