@@ -5,19 +5,17 @@ namespace frontend\models;
 use Yii;
 
 /**
- * This is the model class for table "Tbl_Official_Summaries".
+ * This is the model class for table "Tbl_Official_Summary".
  *
- * @property int $Schedule_ID
- * @property int $subject_id
- * @property int $teacher_id
- * @property int $room_id
- * @property int $status_id
- * @property int $weekday_id
- * @property int $time_id
- * @property int $student_id
- *
- * @property TblOfficialFinalSchedule $schedule
- * @property TblOfficialStudents $student
+ * @property int $summary_id
+ * @property int|null $Schedule_ID
+ * @property int|null $subject_id
+ * @property int|null $teacher_id
+ * @property int|null $room_id
+ * @property int|null $status_id
+ * @property int|null $weekday_id
+ * @property int|null $time_id
+ * @property string|null $student_ids
  */
 class TblOfficialSummary extends \yii\db\ActiveRecord
 {
@@ -26,7 +24,7 @@ class TblOfficialSummary extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Tbl_Official_Summaries';
+        return 'Tbl_Official_Summary';
     }
 
     /**
@@ -35,10 +33,8 @@ class TblOfficialSummary extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Schedule_ID', 'subject_id', 'teacher_id', 'room_id', 'status_id', 'weekday_id', 'time_id', 'student_id'], 'required'],
-            [['Schedule_ID', 'subject_id', 'teacher_id', 'room_id', 'status_id', 'weekday_id', 'time_id', 'student_id'], 'integer'],
-            [['Schedule_ID'], 'exist', 'skipOnError' => true, 'targetClass' => TblOfficialFinalSchedule::class, 'targetAttribute' => ['Schedule_ID' => 'Schedule_ID']],
-            [['student_id'], 'exist', 'skipOnError' => true, 'targetClass' => TblOfficialStudents::class, 'targetAttribute' => ['student_id' => 'student_id']],
+            [['Schedule_ID', 'subject_id', 'teacher_id', 'room_id', 'status_id', 'weekday_id', 'time_id'], 'integer'],
+            [['student_ids'], 'string'],
         ];
     }
 
@@ -48,6 +44,7 @@ class TblOfficialSummary extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'summary_id' => 'Summary ID',
             'Schedule_ID' => 'Schedule ID',
             'subject_id' => 'Subject ID',
             'teacher_id' => 'Teacher ID',
@@ -55,27 +52,7 @@ class TblOfficialSummary extends \yii\db\ActiveRecord
             'status_id' => 'Status ID',
             'weekday_id' => 'Weekday ID',
             'time_id' => 'Time ID',
-            'student_id' => 'Student ID',
+            'student_ids' => 'Student Ids',
         ];
-    }
-
-    /**
-     * Gets query for [[Schedule]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSchedule()
-    {
-        return $this->hasOne(TblOfficialFinalSchedule::class, ['Schedule_ID' => 'Schedule_ID']);
-    }
-
-    /**
-     * Gets query for [[Student]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getStudent()
-    {
-        return $this->hasOne(TblOfficialStudents::class, ['student_id' => 'student_id']);
     }
 }
