@@ -20,11 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
     
 
 
-    <div class="title-search-container">
+    
     <h1 class="custom-title"><?= Html::encode($this->title) ?></h1>
-
-
-    </div>
 
 
     <p class="create-room">
