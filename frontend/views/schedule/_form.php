@@ -72,7 +72,7 @@ use yii\widgets\ActiveForm;
             });
         },
         error: function() {
-            alert('naglibog na ko.');
+            alert('naglibog na ko. subjects');
         }
     });
 
@@ -92,7 +92,7 @@ use yii\widgets\ActiveForm;
             });
         },
         error: function() {
-            alert('naglibog na ko.');
+            alert('naglibog na ko. teachers');
         }
     });
 
@@ -132,7 +132,7 @@ use yii\widgets\ActiveForm;
             });
         },
         error: function() {
-            alert('naglibog na ko.');
+            alert('naglibog na ko. students ');
         }
     });
 
