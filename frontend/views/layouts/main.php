@@ -198,7 +198,7 @@ nav li > a:hover {
                 <li><a href="/bhsregsys2/frontend/web/index.php/rooms">Rooms</a></li>
                 <li><a href="/bhsregsys2/frontend/web/index.php/teachers">Teacher</a></li>
                 <li><a href="/bhsregsys2/frontend/web/index.php/subjects">Subject</a></li>
-                <li><a href="">Summary</a></li>
+                <li><a href="/bhsregsys2/frontend/web/index.php/summary">Summary</a></li>
                 
             </ul>
         </nav>
