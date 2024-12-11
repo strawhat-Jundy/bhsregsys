@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Chonburi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+main {
+  padding-block: 11em 10em;
+  padding-inline: 3em;
+  background-image: url(/registry.system/images/background-abt.png);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 95%,
+    95% 100%,
+    81% 96%,
+    72% 98%,
+    56% 100%,
+    42% 96%,
+    27% 100%,
+    15% 98%,
+    6% 100%,
+    0 95%
+  );
+}
+table {
+  background-color: #001840;
+  color: #efefef;
+  border-radius: 10px;
+  padding: 1em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.8);
+}
+thead,
+th {
+  border: 1.5px solid #b9b9b9;
+  background-color: #00152b;
+  padding: 0.9em;
+}
+.tr1 > td {
+  background-color: #001840;
+  color: #efefef;
+  border: 1.5px solid #b9b9b9;
+  padding: 0.9em;
+}
+.tr2 > td{
+  background-color: #001336;
+  color: #efefef;
+  border: 1.5px solid #b9b9b9;
+  padding: 0.9em;
+}
+.tbl-title {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.8rem;
+}
+.tbl-create {
+  background-color: #001840;
+  color: #efefef;
+  border: 1px solid #b9b9b9;
+  border-radius: 5px;
+  padding: 0.7em 1em;
+  margin: 0.5em 0 2em;
+  box-shadow: 0 0 1em black;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.tbl-create:active {
+  opacity: 0.6;
+}
