@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="tbl-official-students-form">
+< class="tbl-official-students-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -19,6 +19,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'gender')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', 'LGBT' => 'LGBT', '' => '', ], ['prompt' => '']) ?>
+    
 
     <?= $form->field($model, 'birthdate')->textInput() ?>
 
@@ -42,6 +43,8 @@ use yii\widgets\ActiveForm;
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
-    <?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); 
 
-</div>
+ 
+
+?>

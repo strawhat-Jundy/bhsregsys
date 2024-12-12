@@ -1,15 +1,15 @@
 <?php
 
-namespace frontend\models;
+namespace frontend\models\schedule;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\TblOfficialSummary;
+use frontend\models\TblOfficialTeachers;
 
 /**
- * summary represents the model behind the search form of `frontend\models\TblOfficialSummary`.
+ * TeachersSearch represents the model behind the search form of `frontend\models\TblOfficialTeachers`.
  */
-class summary extends TblOfficialSummary
+class TeachersSearch extends TblOfficialTeachers
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class summary extends TblOfficialSummary
     public function rules()
     {
         return [
-            [['summary_id', 'Schedule_ID', 'subject_id', 'teacher_id', 'room_id', 'status_id', 'weekday_id', 'time_id'], 'integer'],
-            [['student_ids'], 'safe'],
+            [['teacher_id'], 'integer'],
+            [['first_name', 'last_name'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class summary extends TblOfficialSummary
      */
     public function search($params)
     {
-        $query = TblOfficialSummary::find();
+        $query = TblOfficialTeachers::find();
 
         // add conditions that should always apply here
 
@@ -58,17 +58,11 @@ class summary extends TblOfficialSummary
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'summary_id' => $this->summary_id,
-            'Schedule_ID' => $this->Schedule_ID,
-            'subject_id' => $this->subject_id,
             'teacher_id' => $this->teacher_id,
-            'room_id' => $this->room_id,
-            'status_id' => $this->status_id,
-            'weekday_id' => $this->weekday_id,
-            'time_id' => $this->time_id,
         ]);
 
-        $query->andFilterWhere(['like', 'student_ids', $this->student_ids]);
+        $query->andFilterWhere(['like', 'first_name', $this->first_name])
+            ->andFilterWhere(['like', 'last_name', $this->last_name]);
 
         return $dataProvider;
     }
