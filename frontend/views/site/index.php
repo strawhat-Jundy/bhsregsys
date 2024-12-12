@@ -176,7 +176,7 @@ use yii\helpers\Url;
         </div>
         
     </main>
-    <!-- <footer>
+    <footer>
         <div class="footer-container">
             <div class="logo-foot">
                 <img src="<?= Url::to('@web/images/logo.png')?>" alt="Balingasa Higb School Registry System">
@@ -303,7 +303,7 @@ use yii\helpers\Url;
             </div>
         </div>
         &copy; 2024 All Rights Reserved <br> Balingasa High School 12-ICT OCTAV8
-    </footer> -->
+    </footer>
     <script>
         document.getElementById("goAbout").addEventListener("click", function() {
     window.location.href = "#about";
