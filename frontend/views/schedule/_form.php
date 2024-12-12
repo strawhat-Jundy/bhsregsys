@@ -12,10 +12,16 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'subject_id')->textInput() ?>
+    <?= $form->field($model, 'subject_id')->textInput([ 
+        'id' => 'subject_id_input',
+        'readonly' => true, 
+        ]) 
+    ?>
     <?= $form->field($model, 'subject_id')->dropDownList([], [
         'id' => 'subjects-dropdown',
         'prompt' => 'Select a Subject',
+        'onchange' => 'updateSubjectId()',
+
     ])->label('Subject Name')
     ?>
     
@@ -211,6 +217,21 @@ use yii\widgets\ActiveForm;
         }
     });
 
+   // JavaScript function to update teacher ID in the input field
+    function updateSubjectId() {
+        // Get the selected option from the subject dropdown
+        var subjectsDropdown = document.getElementById('subjects-dropdown');
+        var selectedValue = subjectsDropdown.value;
+
+        // Set the text input value to the selected subjects's ID
+        var subjectIdInput = document.getElementById('subject_id_input');
+        subjectIdInput.value = selectedValue;
+    }
+
+    // Event handler for the teacher dropdown to update the teacher ID input field
+    $('#subjects-dropdown').on('change', function() {
+        updateSubjectId(); // Call the updateSubjectId function when the dropdown changes
+    });
 
 
    
