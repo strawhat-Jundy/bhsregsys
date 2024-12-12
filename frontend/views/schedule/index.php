@@ -68,6 +68,14 @@ $this->registerCssFile("https://fonts.googleapis.com/css2?family=Chonburi&family
                 'label' => 'Student',
             ],
             [
+                'attribute' => 'room_id',
+                'value' => function ($model) {
+                    return $model->status ? $model->status->Status : null; // Adjust 'room_number' to match your column in the room table
+                },
+                'label' => 'Status',
+            ],
+
+            [
                 'attribute' => 'weekday_id',
                 'value' => function ($model) {
                     return $model->weekday ? $model->weekday->Day : null; // Adjust 'full_name' to match your column in the student table
