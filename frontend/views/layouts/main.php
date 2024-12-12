@@ -185,7 +185,7 @@ nav li > a:hover {
                     <li onclick="hideSidebar"><a href="">Subject</a></li>
                     <li onclick="hideSidebar"><a href="">Summary</a></li>
                     <li onclick="hideSidebar"><a href="">Sign up</a></li>
-                    <li onclick="hideSidebar" class="login"><a href="">Log In</a></li>
+                    <li onclick="hideSidebar" class="login"><a href="/bhsregsys2/frontend/web/index.php/site/login">Log In</a></li>
                 </div>
                 <div class="copy">
                     &copy; 2024 All Rights Reserved <br> Balingasa High School 12-ICT OCTAV8
@@ -203,8 +203,8 @@ nav li > a:hover {
             </ul>
         </nav>
         <div class="registration hideon-mobile">
-            <a href="" class="sign-up">Sign up</a>
-            <button class="btn-yellow" id="">Log In</button>
+            <a href="/bhsregsys2/frontend/web/index.php/site/signup" class="sign-up">Sign up</a>
+            <a href="/bhsregsys2/frontend/web/index.php/site/login" class="classname btn-yellow classname login" id="">Log In</a>
         </div>
         <li class="menu-button" onclick="showSidebar()">
             <i class="ri-menu-line"></i>
