@@ -2,15 +2,14 @@
 
 namespace frontend\controllers;
 
-// use frontend\models\BalingasaHighSchoolTeachers;
 use frontend\models\TblOfficialTeachers;
-use frontend\models\teacher\teachersSearch;
+use frontend\models\schedule\TeachersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * TeachersController implements the CRUD actions for BalingasaHighSchoolTeachers model.
+ * TeachersController implements the CRUD actions for TblOfficialTeachers model.
  */
 class TeachersController extends Controller
 {
@@ -33,13 +32,13 @@ class TeachersController extends Controller
     }
 
     /**
-     * Lists all BalingasaHighSchoolTeachers models.
+     * Lists all TblOfficialTeachers models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new teachersSearch();
+        $searchModel = new TeachersSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -49,7 +48,7 @@ class TeachersController extends Controller
     }
 
     /**
-     * Displays a single BalingasaHighSchoolTeachers model.
+     * Displays a single TblOfficialTeachers model.
      * @param int $teacher_id Teacher ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -62,35 +61,29 @@ class TeachersController extends Controller
     }
 
     /**
-     * Creates a new BalingasaHighSchoolTeachers model.
+     * Creates a new TblOfficialTeachers model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
-    // public function actionCreate()
-    // {
-    //     $model = new BalingasaHighSchoolTeachers();
+    public function actionCreate()
+    {
+        $model = new TblOfficialTeachers();
 
-    //     if ($this->request->isPost) {
-    //         if ($model->load($this->request->post()) && $model->save()) {
-    //             return $this->redirect(['view', 'teacher_id' => $model->teacher_id]);
-    //         }
-    //     } else {
-    //         $model->loadDefaultValues();
-    //     }
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'teacher_id' => $model->teacher_id]);
+            }
+        } else {
+            $model->loadDefaultValues();
+        }
 
-    //     return $this->render('create', [
-    //         'model' => $model,
-    //     ]);
-    // }
-
-    public function actionGetTeachers(){
-        $teachers = TblOfficialTeachers::find()->select(['teacher_id', 'last_name'])->all();
-        $TeacherList = \yii\helpers\ArrayHelper::map($teachers, 'teacher_id', 'last_name');
-        return $this->asJson($TeacherList);
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
-     * Updates an existing BalingasaHighSchoolTeachers model.
+     * Updates an existing TblOfficialTeachers model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $teacher_id Teacher ID
      * @return string|\yii\web\Response
@@ -110,7 +103,7 @@ class TeachersController extends Controller
     }
 
     /**
-     * Deletes an existing BalingasaHighSchoolTeachers model.
+     * Deletes an existing TblOfficialTeachers model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $teacher_id Teacher ID
      * @return \yii\web\Response
@@ -124,18 +117,18 @@ class TeachersController extends Controller
     }
 
     /**
-     * Finds the BalingasaHighSchoolTeachers model based on its primary key value.
+     * Finds the TblOfficialTeachers model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $teacher_id Teacher ID
-     * @return BalingasaHighSchoolTeachers the loaded model
+     * @return TblOfficialTeachers the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    // protected function findModel($teacher_id)
-    // {
-    //     if (($model = BalingasaHighSchoolTeachers::findOne(['teacher_id' => $teacher_id])) !== null) {
-    //         return $model;
-    //     }
+    protected function findModel($teacher_id)
+    {
+        if (($model = TblOfficialTeachers::findOne(['teacher_id' => $teacher_id])) !== null) {
+            return $model;
+        }
 
-    //     throw new NotFoundHttpException('The requested page does not exist.');
-    // }
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
 }

@@ -203,8 +203,13 @@ nav li > a:hover {
             </ul>
         </nav>
         <div class="registration hideon-mobile">
+<<<<<<< HEAD
             <a href="/bhsregsys2/frontend/web/index.php/site/signup" class="sign-up">Sign up</a>
             <a href="/bhsregsys2/frontend/web/index.php/site/login" class="classname btn-yellow classname login" id="">Log In</a>
+=======
+            <a href="./site/signup.php" class="sign-up">Sign up</a>
+            <button class="btn-yellow" id="">Log In</button>
+>>>>>>> be549d2 (fix)
         </div>
         <li class="menu-button" onclick="showSidebar()">
             <i class="ri-menu-line"></i>

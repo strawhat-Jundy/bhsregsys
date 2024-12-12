@@ -1,6 +1,9 @@
 <?php
 
-use frontend\models\BalingasaHighSchoolTeachers;
+
+// use frontend\models\BalingasaHighSchoolTeachers;
+use frontend\models\TblOfficialFinalSchedule;
+use frontend\models\TblOfficialTeachers;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -33,12 +36,12 @@ $this->registerCssFile("https://fonts.googleapis.com/css2?family=Chonburi&family
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'teacher_id',
+            // 'teacher_id',
             'first_name',
             'last_name',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, BalingasaHighSchoolTeachers $model, $key, $index, $column) {
+                'urlCreator' => function ($action, TblOfficialTeachers $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'teacher_id' => $model->teacher_id]);
                  }
             ],

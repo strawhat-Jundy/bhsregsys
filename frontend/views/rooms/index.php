@@ -37,7 +37,7 @@ $this->title = 'Balingasa High School Rooms';
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'room_id',
+            // 'room_id',
             'Room',
             'Floor',
             'Building',
