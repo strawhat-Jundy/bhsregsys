@@ -160,6 +160,130 @@ nav li > a:hover {
   }
 }
 
+/* FOOTER CSS */
+
+footer {
+  color: #efefef;
+  padding: 10em;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3em;
+}
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5em;
+}
+footer img {
+  width: 250px;
+  opacity: 0.8;
+}
+.logo-foot {
+  display: flex;
+  flex-direction: column;
+}
+.links-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.links-foot h2 {
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+}
+.links-foot h2::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 75%;
+  background-color: #ffb915;
+  bottom: -10px;
+  left: 60px;
+}
+.mentions {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.developers-container {
+  display: flex;
+  gap: 6em;
+}
+.developers {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.developers p,
+.mentions p {
+  color: rgb(192, 192, 192);
+}
+
+.developers-container2 {
+  display: none;
+}
+
+@media (max-width: 1250px) {
+  .footer-container {
+    flex-direction: column-reverse;
+    gap: 5em;
+  }
+  .developers-container {
+    display: none;
+  }
+  .developers-container2 {
+    display: flex;
+    gap: 8em;
+    margin-top: 2em;
+  }
+  .maledev,
+  .femaledev,
+  .mentions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+  .links-foot h2::after {
+    display: none;
+  }
+  .links-foot h2 {
+    width: 40vw;
+    border-bottom: 2px solid #ffb915;
+    padding-bottom: 0.6em;
+    margin: auto;
+  }
+  footer img {
+    width: 150px;
+    opacity: 0.6;
+  }
+  .logo-foot {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 690px) {
+  html {
+    font-size: 12px;
+  }
+  footer {
+    padding-inline: 5em;
+  }
+  .developers-container2 {
+    flex-direction: column;
+    gap: 3em;
+  }
+  .maledev,
+  .femaledev,
+  .mentions {
+    flex-direction: row;
+  }
+}
+
     </style>
 </head>
 
@@ -240,6 +364,135 @@ nav li > a:hover {
             <?= $content ?>
         </div>
     </main>
+    <footer>
+        <div class="footer-container">
+            <div class="logo-foot">
+                <img src="<?= Url::to('@web/images/logo.png')?>" alt="Balingasa Higb School Registry System">
+                <img src="<?= Url::to('@web/images/bafe-logo.png')?>" alt="Bureau of Agriculture and Fisheries Engineering">
+            </div>
+            <div class="links-foot">
+                <h2>WEBSITE DEVELOPERS | SPECIAL MENTIONS</h2>
+                <div class="footer-names">
+                    <div class="developers-container">
+                        <div class="developers">
+                            <div class="dev dev-one">
+                                <h3>Van Cholo Esguerra</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Backend Web Developer</p>
+                            </div>
+                            <div class="dev dev-two">
+                                <h3>Lucky Vincent Cudia</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Backend Web Developer</p>
+                            </div>
+                            <div class="dev dev-three">
+                                <h3>Kenneth Apolong</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Backend Web Developer</p>
+                            </div>
+                            <div class="dev dev-four">
+                                <h3>Leonel Rogon</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Frontend Web Developer</p>
+                            </div>
+                            <div class="dev dev-five">
+                                <h3>Hillary Mhyles Toledo</h3>
+                                <p>&nbsp;&nbsp;&nbsp;UI/UX & Graphic Designer</p>
+                            </div>
+                            <div class="dev dev-six">
+                                <h3>Elaiza Rosario</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Frontend Web Developer</p>
+                            </div>
+                            <div class="dev dev-seven">
+                                <h3>Erin Alonzo</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Frontend Web Developer</p>
+                            </div>
+                            <div class="dev dev-eight">
+                                <h3>Eloisa Rosario</h3>
+                                <p>&nbsp;&nbsp;&nbsp; Assistant Editor</p>
+                            </div>
+                        </div>
+                        <div class="mentions">
+                            <div class="ment-one">
+                                <h3>Mr. Julius Abe Peralta</h3>
+                                <p>&nbsp;&nbsp;&nbsp;IT Professional</p>
+                            </div>
+                            <div class="ment-two">
+                                <h3>Mr. Jundy Dimasu-ay</h3>
+                                <p>&nbsp;&nbsp;&nbsp;IT Professional</p>
+                            </div>
+                            <div class="ment-three">
+                                <h3>Gabriel Capangyarihan</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Photographer</p>
+                            </div>
+                            <div class="ment-four">
+                                <h3>Ms. Ana Isabel Dupla</h3>
+                                <p>&nbsp;&nbsp;&nbsp;ICT Teacher</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="developers-container2">
+                        <div class="maledev">
+                            <div class="dev dev-one">
+                                <h3>Van Cholo Esguerra</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Backend Web Developer</p>
+                            </div>
+                            <div class="dev dev-two">
+                                <h3>Lucky Vincent Cudia</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Backend Web Developer</p>
+                            </div>
+                            <div class="dev dev-three">
+                                <h3>Kenneth Apolong</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Backend Web Developer</p>
+                            </div>
+                            <div class="dev dev-four">
+                                <h3>Leonel Rogon</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Frontend Web Developer</p>
+                            </div>
+                        </div>
+
+                        <div class="femaledev">
+                            <div class="dev dev-five">
+                                <h3>Hillary Mhyles Toledo</h3>
+                                <p>&nbsp;&nbsp;&nbsp;UI/UX & Graphic Designer</p>
+                            </div>
+                            <div class="dev dev-six">
+                                <h3>Elaiza Rosario</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Frontend Web Developer</p>
+                            </div>
+                            <div class="dev dev-seven">
+                                <h3>Erin Alonzo</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Frontend Web Developer</p>
+                            </div>
+                            <div class="dev dev-eight">
+                                <h3>Eloisa Rosario</h3>
+                                <p>&nbsp;&nbsp;&nbsp; Assistant Editor</p>
+                            </div>
+                        </div>
+
+                        <div class="mentions">
+                            <div class="ment-one">
+                                <h3>Mr. Julius Abe Peralta</h3>
+                                <p>&nbsp;&nbsp;&nbsp;IT Professional</p>
+                            </div>
+                            <div class="ment-two">
+                                <h3>Mr. Jundy Dimasu-ay</h3>
+                                <p>&nbsp;&nbsp;&nbsp;IT Professional</p>
+                            </div>
+                            <div class="ment-three">
+                                <h3>Gabriel Capangyarihan</h3>
+                                <p>&nbsp;&nbsp;&nbsp;Photographer</p>
+                            </div>
+                            <div class="ment-four">
+                                <h3>Ms. Ana Isabel Dupla</h3>
+                                <p>&nbsp;&nbsp;&nbsp;ICT Teacher</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        &copy; 2024 All Rights Reserved <br> Balingasa High School 12-ICT OCTAV8
+    </footer>
+    
     <!-- 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
