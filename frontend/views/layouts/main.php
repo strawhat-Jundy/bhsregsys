@@ -193,7 +193,7 @@ nav li > a:hover {
             </ul>
             <ul class="hideon-mobile">
                 <li><a href="/bhsregsys2/frontend/web/index.php/">Home</a></li>
-                <li><a href="/bhsregsys2/frontend/web/index.php/students">students</a></li>
+                <li><a href="/bhsregsys2/frontend/web/index.php/students">Students</a></li>
                 <li><a href="/bhsregsys2/frontend/web/index.php/schedule">Schedule</a></li>
                 <li><a href="/bhsregsys2/frontend/web/index.php/rooms">Rooms</a></li>
                 <li><a href="/bhsregsys2/frontend/web/index.php/teachers">Teacher</a></li>

@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
     
 
 
-    <?= $form->field($model, 'teacher_id')->textInput() ?>
+    <!-- <?= $form->field($model, 'teacher_id')->textInput() ?> -->
     <?= $form->field($model, 'teacher_id')->dropDownList([], [
         'id' => 'teachers-dropdown',
         'prompt' => 'Select a Teacher',
@@ -29,25 +29,40 @@ use yii\widgets\ActiveForm;
     ?>
    
 
-    <?= $form->field($model, 'room_id')->textInput() ?>
+    <!-- <?= $form->field($model, 'room_id')->textInput() ?> -->
     <?= $form->field($model, 'room_id')->dropDownList([], [
         'id' => 'room-dropdown',
         'prompt' => 'Select a Room',
     ])->label('Room')
     ?>
 
-    <?= $form->field($model, 'student_id')->textInput() ?>
+    <!-- <?= $form->field($model, 'student_id')->textInput() ?> -->
     <?= $form->field($model, 'student_id')->dropDownList([], [
         'id' => 'students-dropdown',
         'prompt' => 'Select a Student',
     ])->label('Student')
     ?>
 
-    <?= $form->field($model, 'status_id')->textInput() ?>
+    <!-- <?= $form->field($model, 'status_id')->textInput() ?> -->
+    <?= $form->field($model, 'status_id')->dropDownList([], [
+        'id' => 'status-dropdown',
+        'prompt' => 'Select a Status',
+    ])->label('Status')
+    ?>
 
-    <?= $form->field($model, 'weekday_id')->textInput() ?>
+    <!-- <?= $form->field($model, 'weekday_id')->textInput() ?> -->
+    <?= $form->field($model, 'weekday_id')->dropDownList([], [
+        'id' => 'weekday-dropdown',
+        'prompt' => 'Select a Weekday',
+    ])->label('Weekday')
+    ?>
 
-    <?= $form->field($model, 'time_id')->textInput() ?>
+    <!-- <?= $form->field($model, 'time_id')->textInput() ?> -->
+    <?= $form->field($model, 'time_id')->dropDownList([], [
+        'id' => 'time-dropdown',
+        'prompt' => 'Select a Time',
+    ])->label('Timeday')
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
@@ -98,7 +113,7 @@ use yii\widgets\ActiveForm;
 
      // jQuery to populate the dropdown with room
     $.ajax({
-        url: '/bhsregsys2/frontend/web/room/get-room/', // Adjust the URL to match your controller/action
+        url: '/bhsregsys2/frontend/web/rooms/get-room/', // Adjust the URL to match your controller/action
         type: 'GET',
         success: function(data) {
             var dropdown = $('#room-dropdown');
@@ -135,6 +150,67 @@ use yii\widgets\ActiveForm;
             alert('naglibog na ko. students ');
         }
     });
+
+      // jQuery to populate the dropdown with status
+    $.ajax({
+        url: '/bhsregsys2/frontend/web/status/get-status/', // Adjust the URL to match your controller/action
+        type: 'GET',
+        success: function(data) {
+            var dropdown = $('#status-dropdown');
+            dropdown.empty(); // Clear existing options
+            dropdown.append('<option value=\"\">Select a Status</option>'); // Add the default option
+            
+            // Loop through the returned data and append to dropdown
+            $.each(data, function(status_id, Status) {
+                dropdown.append('<option value=\"' + status_id + '\">' + Status + '</option>');
+                console.log(data);
+            });
+        },
+        error: function() {
+            alert('naglibog na ko. students ');
+        }
+    });
+    
+      // jQuery to populate the dropdown with weekday
+    $.ajax({
+        url: '/bhsregsys2/frontend/web/weekday/get-weekday/', // Adjust the URL to match your controller/action
+        type: 'GET',
+        success: function(data) {
+            var dropdown = $('#weekday-dropdown');
+            dropdown.empty(); // Clear existing options
+            dropdown.append('<option value=\"\">Select a Weekday</option>'); // Add the default option
+            
+            // Loop through the returned data and append to dropdown
+            $.each(data, function(weekday_id, Day) {
+                dropdown.append('<option value=\"' + weekday_id + '\">' + Day + '</option>');
+                console.log(data);
+            });
+        },
+        error: function() {
+            alert('naglibog na ko. day ');
+        }
+    });
+
+     // jQuery to populate the dropdown with time
+    $.ajax({
+        url: '/bhsregsys2/frontend/web/time/get-time/', // Adjust the URL to match your controller/action
+        type: 'GET',
+        success: function(data) {
+            var dropdown = $('#time-dropdown');
+            dropdown.empty(); // Clear existing options
+            dropdown.append('<option value=\"\">Select a Time</option>'); // Add the default option
+            
+            // Loop through the returned data and append to dropdown
+            $.each(data, function(time_id, Time_Schedule) {
+                dropdown.append('<option value=\"' + time_id + '\">' + Time_Schedule + '</option>');
+                console.log(data);
+            });
+        },
+        error: function() {
+            alert('naglibog na ko. day ');
+        }
+    });
+
 
 
    
