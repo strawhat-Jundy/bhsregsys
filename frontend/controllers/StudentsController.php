@@ -102,6 +102,13 @@ class StudentsController extends Controller
         ]);
     }
 
+    public function actionGetStudents(){
+        $students = TblOfficialStudents::find()->select(['student_id', 'last_name'])->all();
+        $studentList = \yii\helpers\ArrayHelper::map($students, 'student_id', 'last_name');
+        return $this->asJson($studentList);
+    }
+
+
     /**
      * Deletes an existing TblOfficialStudents model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
