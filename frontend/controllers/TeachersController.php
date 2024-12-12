@@ -47,6 +47,12 @@ class TeachersController extends Controller
         ]);
     }
 
+    public function actionGetTeachers(){
+        $teachers = TblOfficialTeachers::find()->select(['teacher_id', 'last_name'])->all();
+        $TeacherList = \yii\helpers\ArrayHelper::map($teachers, 'teacher_id', 'last_name');
+        return $this->asJson($TeacherList);
+    }
+
     /**
      * Displays a single TblOfficialTeachers model.
      * @param int $teacher_id Teacher ID

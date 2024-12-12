@@ -250,7 +250,7 @@ nav li > a:hover {
     </div>
 </footer> -->
 
-    <!-- <?php $this->endBody() ?> -->
+    <?php $this->endBody() ?>
 </body>
 
 </html>
