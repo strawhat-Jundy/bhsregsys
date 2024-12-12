@@ -177,14 +177,14 @@ nav li > a:hover {
                     <li onclick="hideSidebar()"><i class="ri-close-line"></i></li>
                 </div>
                 <div class="sidebarnav">
-                    <li onclick="hideSidebar"><a href="">Home</a></li>
-                    <li onclick="hideSidebar"><a href="">Student</a></li>
-                    <li onclick="hideSidebar"><a href="">Schedule</a></li>
-                    <li onclick="hideSidebar"><a href="">Room</a></li>
-                    <li onclick="hideSidebar"><a href="">Teacher</a></li>
-                    <li onclick="hideSidebar"><a href="">Subject</a></li>
-                    <li onclick="hideSidebar"><a href="">Summary</a></li>
-                    <li onclick="hideSidebar"><a href="">Sign up</a></li>
+                    <li onclick="hideSidebar"><a href="/bhsregsys2/frontend/web/index.php/">Home</a></li>
+                    <li onclick="hideSidebar"><a href="/bhsregsys2/frontend/web/index.php/students">Student</a></li>
+                    <li onclick="hideSidebar"><a href="/bhsregsys2/frontend/web/index.php/schedule">Schedule</a></li>
+                    <li onclick="hideSidebar"><a href="/bhsregsys2/frontend/web/index.php/rooms">Room</a></li>
+                    <li onclick="hideSidebar"><a href="/bhsregsys2/frontend/web/index.php/teachers">Teacher</a></li>
+                    <li onclick="hideSidebar"><a href="/bhsregsys2/frontend/web/index.php/subjects">Subject</a></li>
+                    <li onclick="hideSidebar"><a href="/bhsregsys2/frontend/web/index.php/summary">Summary</a></li>
+                    <li onclick="hideSidebar"><a href="/bhsregsys2/frontend/web/index.php/site/signup">Sign up</a></li>
                     <li onclick="hideSidebar" class="login"><a href="/bhsregsys2/frontend/web/index.php/site/login">Log In</a></li>
                 </div>
                 <div class="copy">
