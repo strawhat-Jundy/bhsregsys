@@ -12,8 +12,8 @@ $this->registerCssFile("https://fonts.googleapis.com/css2?family=Chonburi&family
 
 
 $this->title = 'Create Tbl Official Subjects';
-$this->params['breadcrumbs'][] = ['label' => 'Tbl Official Subjects', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+// $this->params['breadcrumbs'][] = ['label' => 'Tbl Official Subjects', 'url' => ['index']];
+// $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="balingasa-high-school-summary-create">
 
@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <!-- Internal CSS -->
 <style>
  body {
-    background: #f5c400;
+    background: linear-gradient(45deg, #f5c400, orange);
        
     }
 
@@ -47,14 +47,18 @@ $this->params['breadcrumbs'][] = $this->title;
     /* Styling for the form */
     .balingasa-high-school-summary-create form {
         background-color:  #001840;
-        padding: 20px;
+        padding: 2em 5em;
         border-radius: 25px;
-        box-shadow: 0 4px 8px rgba(20, 20, 20, 20);
+        box-shadow: 0 0 2em rgba(0, 0, 0, 0.6);
+        max-width: 50vw;
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
         text-align: center; 
         color: white; 
         font-weight: bold; 
         font-family: "Montserrat", sans-serif;
-
     }
 
     /* Change input field background and text color */
@@ -78,6 +82,7 @@ $this->params['breadcrumbs'][] = $this->title;
         padding: 10px 20px;
         border-radius: 20px;
         font-size: 16px;
+        font-weight: bold;
         cursor: pointer;
     }
 

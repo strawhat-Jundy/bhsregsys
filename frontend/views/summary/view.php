@@ -10,8 +10,8 @@ $this->registerCssFile("https://fonts.googleapis.com/css2?family=Chonburi&displa
 $this->registerCssFile("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Montserrat:wght@100..900&display=swap", ['position' => \yii\web\View::POS_HEAD]);
 
 $this->title = $model->summary_id;
-$this->params['breadcrumbs'][] = ['label' => 'Balingasa High School Rooms', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+// $this->params['breadcrumbs'][] = ['label' => 'Balingasa High School Rooms', 'url' => ['index']];
+// $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="balingasa-high-school-summary-view">

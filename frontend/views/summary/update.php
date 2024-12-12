@@ -11,9 +11,9 @@ $this->registerCssFile("https://fonts.googleapis.com/css2?family=Chonburi&family
 
 
 $this->title = 'Update Tbl Official Summary: ' . $model->summary_id;
-$this->params['breadcrumbs'][] = ['label' => 'Tbl Official Summaries', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->summary_id, 'url' => ['view', 'summary_id' => $model->summary_id]];
-$this->params['breadcrumbs'][] = 'Update';
+// $this->params['breadcrumbs'][] = ['label' => 'Tbl Official Summaries', 'url' => ['index']];
+// $this->params['breadcrumbs'][] = ['label' => $model->summary_id, 'url' => ['view', 'summary_id' => $model->summary_id]];
+// $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="balingasa-high-school-summary-update">
 

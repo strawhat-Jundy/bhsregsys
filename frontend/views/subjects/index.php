@@ -16,7 +16,7 @@ $this->registerCssFile("https://fonts.googleapis.com/css2?family=Chonburi&family
 
 
 $this->title = 'Balingasa High School Subjects';
-$this->params['breadcrumbs'][] = $this->title;
+// $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tbl-official-subjects-index">
 
@@ -60,7 +60,10 @@ $this->params['breadcrumbs'][] = $this->title;
         background-position: center;
     }
    
-
+    body a{
+    color:  #f5c400;
+    text-decoration: none;
+}
 
     .custom-title {
             font-size: 55px;

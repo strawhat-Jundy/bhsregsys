@@ -11,8 +11,8 @@ $this->registerCssFile("https://fonts.googleapis.com/css2?family=Orbitron:wght@4
 
 
 $this->title = $model->subject_id;
-$this->params['breadcrumbs'][] = ['label' => 'Tbl Official Subjects', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+// $this->params['breadcrumbs'][] = ['label' => 'Tbl Official Subjects', 'url' => ['index']];
+// $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="balingasa-high-school-subjects-view">

@@ -12,8 +12,8 @@ $this->registerCssFile("https://fonts.googleapis.com/css2?family=Chonburi&family
 
 
 $this->title = $model->student_id;
-$this->params['breadcrumbs'][] = ['label' => 'Tbl Official Students', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+// $this->params['breadcrumbs'][] = ['label' => 'Tbl Official Students', 'url' => ['index']];
+// $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="tbl-official-students-view">

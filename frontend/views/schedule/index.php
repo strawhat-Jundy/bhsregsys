@@ -11,7 +11,7 @@ use yii\grid\GridView;
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Balingasa High School Official Schedules';
-$this->params['breadcrumbs'][] = $this->title;
+// $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerCssFile("https://fonts.googleapis.com/css2?family=Chonburi&display=swap", ['position' => \yii\web\View::POS_HEAD]);
 
@@ -113,7 +113,10 @@ $this->registerCssFile("https://fonts.googleapis.com/css2?family=Chonburi&family
         background-repeat: no-repeat;
         background-position: center;
     }
-   
+   body a{
+    color:  #f5c400;
+    text-decoration: none;
+   }
 
     .custom-title {
             font-size: 55px;

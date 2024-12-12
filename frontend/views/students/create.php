@@ -11,8 +11,8 @@ $this->registerCssFile("https://fonts.googleapis.com/css2?family=Chonburi&family
 
 
 $this->title = 'Register New Students';
-$this->params['breadcrumbs'][] = ['label' => 'Tbl Official Students', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+// $this->params['breadcrumbs'][] = ['label' => 'Tbl Official Students', 'url' => ['index']];
+// $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tbl-official-students-create">
 
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <!-- Internal CSS -->
 <style>
  body {
-    background: #f5c400;
+    background: linear-gradient(45deg,  #f5c400, orange);
     }
 
     .custom-title {
@@ -45,9 +45,14 @@ $this->params['breadcrumbs'][] = $this->title;
     /* Styling for the form */
     .tbl-official-students-create form {
         background-color:  #001840;
-        padding: 20px;
+        padding: 2em 5em;
         border-radius: 25px;
-        box-shadow: 0 4px 8px rgba(20, 20, 20, 20);
+        box-shadow: 0 0 2em rgba(0, 0, 0, 0.6);
+        max-width: 50vw;
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
         text-align: center; 
         color: white; 
         font-weight: bold; 
@@ -75,7 +80,9 @@ $this->params['breadcrumbs'][] = $this->title;
         padding: 10px 20px;
         border-radius: 20px;
         font-size: 16px;
+        font-weight: bold;
         cursor: pointer;
+        
     }
 
     /* Button hover effect */
